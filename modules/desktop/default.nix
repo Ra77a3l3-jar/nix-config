@@ -1,0 +1,9 @@
+{ ... }:
+
+{
+
+    imports = [
+        ./gnome/default.nix
+    ];
+    
+}

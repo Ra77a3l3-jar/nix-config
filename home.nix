@@ -3,6 +3,7 @@
 {
   imports = [
     ./modules/core/default.nix
+    ./modules/desktop/default.nix
   ];
   
   home.username = "raffaele";
