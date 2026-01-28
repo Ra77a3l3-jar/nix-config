@@ -4,6 +4,7 @@
   imports = [
     ./modules/core/default.nix
     ./modules/desktop/default.nix
+    ./modules/terminal/default.nix
   ];
   
   home.username = "raffaele";
