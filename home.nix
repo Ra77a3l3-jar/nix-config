@@ -8,6 +8,7 @@
     ./modules/shell/default.nix
     ./modules/editor/default.nix
     ./modules/tools/default.nix
+    ./modules/dev/default.nix
   ];
   
   home.username = "raffaele";
