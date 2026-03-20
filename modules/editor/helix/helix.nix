@@ -3,7 +3,7 @@
 {
   programs.helix = {
     enable = true;
-    package = pkgs-unstable.helix;
+    package = pkgs-unstable.steelix;
 
     settings = {
        theme = "aurara";
