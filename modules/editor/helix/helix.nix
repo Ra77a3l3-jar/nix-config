@@ -6,7 +6,7 @@
     package = pkgs-unstable.steelix;
 
     settings = {
-       theme = "aurara";
+       theme = "base16_black_metal_bathory";
       
       editor = {
         scrolloff = 999;
