@@ -8,7 +8,7 @@
     opencode
     lazygit
     mise
-    steel
+    #steel
   ]);
   
 }
