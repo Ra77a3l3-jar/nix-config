@@ -3,12 +3,12 @@
 {
 
   home.packages = with pkgs; [
-    clang
-    clang-tools
-    gdb
+    #clang
+    #clang-tools
+    #gdb
     lldb
-    gnumake
-    valgrind
+    #gnumake
+    #valgrind
   ];
   
 }
