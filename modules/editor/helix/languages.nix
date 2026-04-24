@@ -30,6 +30,7 @@
 
       {
         name = "rust";
+        auto-format = false;
         indent = {
           tab-width = 4;
           unit = "    ";
@@ -90,6 +91,14 @@
         indent = {
           tab-width = 4;
           unit = "  ";
+        };
+      }
+
+      {
+        name = "scheme";
+        indent = {
+          tab-width = 4;
+          unit = "    ";
         };
       }
     ];
