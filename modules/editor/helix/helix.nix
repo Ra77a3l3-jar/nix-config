@@ -6,7 +6,7 @@
     package = pkgs-unstable.steelix;
 
     settings = {
-       theme = "base16_black_metal_bathory";
+       theme = "base16_black_methal_bathory";
       
       editor = {
         scrolloff = 999;
@@ -16,6 +16,7 @@
         
         true-color = true;
         color-modes = true;
+        rainbow-brackets = true;
 
         auto-completion = true;
         completion-trigger-len = 2;
