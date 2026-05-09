@@ -9,6 +9,7 @@
     lazygit
     mise
     #steel
+    gh-dash
   ]);
   
 }
