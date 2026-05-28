@@ -36,6 +36,15 @@
       };
     in
     {
+      devShells = let
+        shells = import ./devshells/flake.nix {
+          inherit inputs system;
+        };
+      in
+      {
+        ${system} = shells;
+      };
+      
       homeConfigurations = {
         # School/Travel laptop configuration
         "raffaele@school-laptop" = home-manager.lib.homeManagerConfiguration {

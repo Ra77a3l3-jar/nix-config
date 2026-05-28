@@ -6,6 +6,14 @@
     hmu = "nix flake update ~/.config/nix-config";
     hmg = "nix-collect-garbage -d";
     hml = "home-manager generations";
+
+    nd-hsk = "nix develop ~/.config/nix-config#haskell";
+    nd-go = "nix develop ~/.config/nix-config#go";
+    nd-java = "nix develop ~/.config/nix-config#java";
+    nd-zig = "nix develop ~/.config/nix-config#zig";
+    nd-asm = "nix develop ~/.config/nix-config#asm";
+    nd-nix = "nix develop ~/.config/nix-config#nix";
+    nd-sh = "nix develop ~/.config/nix-config#bash";
     
     ex = "exit";
     zl = "zellij";
