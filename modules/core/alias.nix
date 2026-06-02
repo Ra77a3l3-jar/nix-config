@@ -7,13 +7,13 @@
     hmg = "nix-collect-garbage -d";
     hml = "home-manager generations";
 
-    nd-hsk = "nix develop ~/.config/nix-config#haskell";
-    nd-go = "nix develop ~/.config/nix-config#go";
-    nd-java = "nix develop ~/.config/nix-config#java";
-    nd-zig = "nix develop ~/.config/nix-config#zig";
-    nd-asm = "nix develop ~/.config/nix-config#asm";
-    nd-nix = "nix develop ~/.config/nix-config#nix";
-    nd-sh = "nix develop ~/.config/nix-config#bash";
+    nd-hsk = "nix develop ~/.config/nix-config#haskell -c fish";
+    nd-go = "nix develop ~/.config/nix-config#go -c fish";
+    nd-java = "nix develop ~/.config/nix-config#java -c fish";
+    nd-zig = "nix develop ~/.config/nix-config#zig -c fish";
+    nd-asm = "nix develop ~/.config/nix-config#asm -c fish";
+    nd-nix = "nix develop ~/.config/nix-config#nix -c fish";
+    nd-sh = "nix develop ~/.config/nix-config#bash -c fish";
     
     ex = "exit";
     zl = "zellij";
