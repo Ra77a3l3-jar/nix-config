@@ -2,6 +2,13 @@
 
 {
   programs.helix.languages = {
+    language-server = {
+      arduino-language-server = {
+        command = "arduino-language-server";
+        args = [ "-cli" "arduino-cli" "-clangd" "clangd" ];
+      };
+    };
+    
     language = [
       {
         name = "python";
@@ -26,6 +33,22 @@
           tab-width = 4;
           unit = "    ";
         };
+      }
+
+      {
+        name = "arduino";
+        scope = "source.cpp";
+        injection-regex = "arduino";
+        file-types = [ "ino" "pde" ];
+        roots = [ "sketch.yaml" ];
+        comment-tokens = "//";
+        block-comment-tokens = { start = "/*"; end = "*/"; };
+        language-servers = [ "clangd" ];
+        indent = {
+          tab-width = 4;
+          unit = "    ";
+        };
+        grammar = "cpp";
       }
 
       {

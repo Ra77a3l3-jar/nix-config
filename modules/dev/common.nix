@@ -12,6 +12,7 @@
     gh-dash
     arduino-ide
     arduino-cli
+    arduino-language-server
   ]);
   
 }
