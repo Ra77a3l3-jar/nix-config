@@ -10,6 +10,8 @@
     mise
     #steel
     gh-dash
+    arduino-ide
+    arduino-cli
   ]);
   
 }
