@@ -38,11 +38,7 @@
       {
         name = "arduino";
         scope = "source.cpp";
-        injection-regex = "arduino";
         file-types = [ "ino" "pde" ];
-        roots = [ "sketch.yaml" ];
-        comment-tokens = "//";
-        block-comment-tokens = { start = "/*"; end = "*/"; };
         language-servers = [ "clangd" ];
         indent = {
           tab-width = 4;

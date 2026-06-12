@@ -3,7 +3,7 @@
 {
 
   home.packages = with pkgs; [
-
+    python3
   ] ++ (with pkgs-unstable; [
     opencode
     lazygit
