@@ -6,6 +6,11 @@ let
     config.allowUnfree = true;
   };
 
+  pkgs-unstable = import inputs.nixpkgs-unstable {
+    inherit system;
+    config.allowUnfree = true;
+  };
+
   hpkgs = pkgs.haskellPackages;
 
 in
@@ -76,10 +81,11 @@ in
     ];
   };
 
-  zig = pkgs.mkShell {
+  zig = pkgs-unstable.mkShell {
     packages = [
-      pkgs.zig
-      pkgs.zls
+      pkgs-unstable.zig
+      pkgs-unstable.zls
+      pkgs-unstable.zig-zlint
     ];
   };
 
