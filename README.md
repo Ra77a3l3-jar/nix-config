@@ -9,7 +9,31 @@ Personal Nix + Home Manager configuration for managing dotfiles and packages acr
 
 ## Installation on Fedora
 
-### 1. Install Prerequisites
+### Quick Install
+
+It will install prerequisites, set up Nix, configure Git/SSH, clone this repository, and bootstrap Home Manager for the current machine:
+
+```bash
+./install.sh
+```
+
+If you need NVIDIA drivers, run after installation:
+
+```bash
+./setup_nvidia.sh
+```
+
+You can also run the Git/SSH setup on its own:
+
+```bash
+./setup_git.sh
+```
+
+### Manual Steps
+
+If you prefer to run the steps manually instead of using the scripts above:
+
+#### 1. Install Prerequisites
 
 First, install Fish shell and Kitty terminal using DNF:
 
@@ -25,7 +49,7 @@ chsh -s $(which fish)
 
 Log out and log back in for the shell change to take effect.
 
-### 2. Install Nix
+#### 2. Install Nix
 
 Install Nix package manager:
 
@@ -54,7 +78,7 @@ mkdir -p ~/.config/nix
 echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 ```
 
-### 3. Setup Git and SSH for GitHub
+#### 3. Setup Git and SSH for GitHub
 
 Configure Git with your information:
 
@@ -95,7 +119,7 @@ Test your connection:
 ssh -T git@github.com
 ```
 
-### 4. Clone This Repository
+#### 4. Clone This Repository
 
 Clone the repository using SSH:
 
@@ -105,7 +129,7 @@ git clone git@github.com:Ra77a3l3-jar/nix-config.git ~/.config/nix-config
 cd ~/.config/nix-config
 ```
 
-### 5. Install Home Manager
+#### 5. Install Home Manager
 
 Bootstrap Home Manager with the appropriate configuration for your machine:
 
