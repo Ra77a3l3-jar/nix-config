@@ -7,13 +7,16 @@
   ] ++ (with pkgs-unstable; [
     opencode
     lazygit
-    mise
-    steel
     gh-dash
+
+    warp-terminal
+
+    steel # steel suite for helix plugins
+
     arduino-ide
     arduino-cli
 
-    kicad # design electronics circuits
+    # kicad design electronics circuits (install with system package for better peformance)
   ]);
   
 }
