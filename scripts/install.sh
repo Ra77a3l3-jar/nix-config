@@ -36,16 +36,7 @@ if [ ! -d "$REPO_DIR/.git" ]; then
     git clone "$REPO_URL" "$REPO_DIR"
 fi
 
-case "$HOSTNAME" in
-    school-laptop|personal-pc)
-        FLAKE_TARGET="raffaele@$HOSTNAME"
-        ;;
-    *)
-        read -rp "Enter flake target (e.g. raffaele@personal-pc): " FLAKE_TARGET
-        ;;
-esac
-
-echo "Installing Home Manager for $FLAKE_TARGET..."
-nix run home-manager/release-25.11 -- init --switch --flake "$REPO_DIR#$FLAKE_TARGET"
+echo "Installing Home Manager"
+echo "nix run home-manager/release-25.11 -- init --switch --flake ~/.config/nix-config#raffaele@legion"
 
 echo "Done. Log out and back in if this was the first run."

@@ -21,8 +21,8 @@
   
   # Machine-specific aliases for home-manager
   home.shellAliases = {
-    hms = "home-manager switch --flake ~/.config/nix-config#raffaele@school-laptop";
-    hmb = "home-manager build --flake ~/.config/nix-config#raffaele@school-laptop";
+    hms = "home-manager switch --flake ~/.config/nix-config#raffaele@legion";
+    hmb = "home-manager build --flake ~/.config/nix-config#raffaele@legion";
   };
   
   home.packages = with pkgs; [
@@ -30,5 +30,7 @@
     wget
     man
     man-pages
+    nh
   ];
+  
 }

@@ -47,7 +47,7 @@
       
       homeConfigurations = {
         # School/Travel laptop configuration
-        "raffaele@school-laptop" = home-manager.lib.homeManagerConfiguration {
+        "raffaele@bobasek" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           
           extraSpecialArgs = { 
@@ -55,12 +55,12 @@
           };
           
           modules = [
-            ./hosts/school-laptop/home.nix
+            ./hosts/bobasek/home.nix
           ];
         };
         
         # Personal PC configuration
-        "raffaele@personal-pc" = home-manager.lib.homeManagerConfiguration {
+        "raffaele@legion" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           
           extraSpecialArgs = { 
@@ -68,7 +68,7 @@
           };
           
           modules = [
-            ./hosts/personal-pc/home.nix
+            ./hosts/legion/home.nix
           ];
         };
         

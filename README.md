@@ -4,8 +4,8 @@ Personal Nix + Home Manager configuration for managing dotfiles and packages acr
 
 ## Supported Hosts
 
-- `school-laptop` - School/travel laptop configuration
-- `personal-pc` - Personal desktop configuration
+- `bobasek` - School/travel laptop configuration
+- `legion` - Personal desktop configuration
 
 ## Installation on Fedora
 
@@ -135,12 +135,12 @@ Bootstrap Home Manager with the appropriate configuration for your machine:
 
 **For school laptop:**
 ```bash
-nix run home-manager/release-25.11 -- init --switch --flake ~/.config/nix-config#raffaele@school-laptop
+nix run home-manager/release-25.11 -- init --switch --flake ~/.config/nix-config#raffaele@bobasek
 ```
 
 **For personal PC:**
 ```bash
-nix run home-manager/release-25.11 -- init --switch --flake ~/.config/nix-config#raffaele@personal-pc
+nix run home-manager/release-25.11 -- init --switch --flake ~/.config/nix-config#raffaele@legion
 ```
 
 ### 6. Apply Configuration
