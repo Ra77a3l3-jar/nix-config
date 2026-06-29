@@ -8,11 +8,12 @@
     opencode
     lazygit
     mise
-    #steel
+    steel
     gh-dash
     arduino-ide
     arduino-cli
-    arduino-language-server
+
+    kicad # design electronics circuits
   ]);
   
 }
