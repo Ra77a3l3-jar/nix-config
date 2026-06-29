@@ -30,6 +30,7 @@
     wget
     man
     man-pages
+    nh
   ];
   
 }

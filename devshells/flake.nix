@@ -104,6 +104,7 @@ in
       pkgs.nixd
       pkgs.nixpkgs-fmt
       pkgs.statix
+      pkgs.nix-init
     ];
   };
 
