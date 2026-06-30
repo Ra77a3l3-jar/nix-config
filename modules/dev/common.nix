@@ -9,7 +9,7 @@
     lazygit
     gh-dash
 
-    warp-terminal
+    # warp-terminal (does not work on fedora + nix without gpu support)
 
     steel # steel suite for helix plugins
 
