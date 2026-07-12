@@ -64,6 +64,52 @@ in
     '';
   };
 
+  ros = let
+    ros-pkgs = import inputs.nix-ros-overlay.inputs.nixpkgs {
+      inherit system;
+      overlays = [ inputs.nix-ros-overlay.overlays.default ];
+      config.allowUnfree = true;
+    };
+    # nixGL lets rviz2 use the NVIDIA GPU. nvidiaVersion must match the
+    # Fedora driver (cat /proc/driver/nvidia/version). After a driver update,
+    # change it and get the new nvidiaHash with:
+    #   nix store prefetch-file https://download.nvidia.com/XFree86/Linux-x86_64/<version>/NVIDIA-Linux-x86_64-<version>.run
+    nvidiaVersion = "580.159.04";
+    nixGLNvidia = (pkgs.callPackage (inputs.nixgl + "/nixGL.nix") {
+      inherit nvidiaVersion;
+      nvidiaHash = "sha256-weZnYbCI0Xs632y2l53przi+JoTRArABoXbc+vq9yh4=";
+      enable32bits = false;
+    }).nixGLNvidia;
+    nixGL = ros-pkgs.writeShellScriptBin "nixGL" ''
+      exec ${nixGLNvidia}/bin/nixGLNvidia-${nvidiaVersion} "$@"
+    '';
+    ros-env = with ros-pkgs.rosPackages.jazzy; buildEnv {
+      paths = [
+        ros-core
+        ros-base
+        rviz2
+        rqt
+        navigation2
+        tf2-ros
+        tf2-tools
+        rmw-fastrtps-cpp
+      ];
+    };
+  in ros-pkgs.mkShell {
+    packages = [
+      # GPU-wrapped rviz2; listed first so it wins over the plain one below
+      (ros-pkgs.writeShellScriptBin "rviz2" ''
+        exec ${nixGL}/bin/nixGL ${ros-env}/bin/rviz2 "$@"
+      '')
+      nixGL
+      ros-pkgs.colcon
+      ros-env
+    ];
+    shellHook = ''
+      echo "ROS2 Jazzy dev environment (rviz2 is nixGL-wrapped)"
+    '';
+  };
+
   go = pkgs.mkShell {
     packages = [
       pkgs.go

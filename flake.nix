@@ -1,6 +1,13 @@
 {
   description = "My first Nix + distro config";
 
+  nixConfig = {
+    extra-substituters = [ "https://ros.cachix.org" ];
+    extra-trusted-public-keys = [
+      "ros.cachix.org-1:dSyZxI8geDCJrwgvCOHDoAfOm5sV1wCPjBkKL+38Rvo="
+    ];
+  };
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -21,9 +28,21 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # pinened ros version to use cache instead of builing everything
+    nix-ros-overlay = {
+      url = "github:lopsided98/nix-ros-overlay/13634b579b61299abfc5389d7d47dd7d1701a3a2";
+      inputs.nixpkgs.follows = "nixpkgs-ros";
+    };
+    nixpkgs-ros.url = "github:NixOS/nixpkgs/d233902339c02a9c334e7e593de68855ad26c4cb";
+
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, flake-utils, zen-browser, nixvim }@inputs: 
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, flake-utils, zen-browser, nixvim, nix-ros-overlay, ... }@inputs: 
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
