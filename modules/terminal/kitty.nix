@@ -1,14 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   programs.kitty = {
     enable = true;
 
-    package = pkgs.runCommand "kitty-system" {} ''
-        mkdir -p $out/bin
-        ln -s /usr/bin/kitty $out/bin/kitty
-      '';
-    
+    package = config.lib.nixGL.wrap pkgs.kitty;
+
     themeFile = "VibrantInk";
 
     font = {

@@ -1,0 +1,24 @@
+# The version below must match the Fedora driver. If nix GUI apps stop
+# starting after a driver update:
+#   1. get the new version:  cat /proc/driver/nvidia/version
+#   2. put it in `version` below
+#   3. get the new hash for nvidiaHash with:
+#      nix store prefetch-file https://download.nvidia.com/XFree86/Linux-x86_64/<version>/NVIDIA-Linux-x86_64-<version>.run
+{ pkgs, nixgl }:
+
+rec {
+  version = "580.159.04";
+
+  packages = pkgs.callPackage (nixgl + "/nixGL.nix") {
+    nvidiaVersion = version;
+    nvidiaHash = "sha256-weZnYbCI0Xs632y2l53przi+JoTRArABoXbc+vq9yh4=";
+    enable32bits = false;
+  };
+
+  nixGLNvidia = pkgs.writeShellScriptBin "nixGLNvidia" ''
+    exec ${packages.nixGLNvidia}/bin/nixGLNvidia-${version} "$@"
+  '';
+  nixVulkanNvidia = pkgs.writeShellScriptBin "nixVulkanNvidia" ''
+    exec ${packages.nixVulkanNvidia}/bin/nixVulkanNvidia-${version} "$@"
+  '';
+}

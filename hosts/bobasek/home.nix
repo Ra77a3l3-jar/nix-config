@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, nixvim, zen-browser, ... }:
+{ config, pkgs, pkgs-unstable, nixvim, zen-browser, inputs, ... }:
 
 {
   imports = [
@@ -18,7 +18,14 @@
   programs.home-manager.enable = true;
 
   nix.package = pkgs.nix;
-  
+
+  # let use Mesa for nix app
+  targets.genericLinux.nixGL = {
+    packages = pkgs.callPackage (inputs.nixgl + "/nixGL.nix") { };
+    defaultWrapper = "mesa";
+  };
+
+
   # Machine-specific aliases for home-manager
   home.shellAliases = {
     hms = "home-manager switch --flake ~/.config/nix-config#raffaele@bobasek";

@@ -70,18 +70,10 @@ in
       overlays = [ inputs.nix-ros-overlay.overlays.default ];
       config.allowUnfree = true;
     };
-    # nixGL lets rviz2 use the NVIDIA GPU. nvidiaVersion must match the
-    # Fedora driver (cat /proc/driver/nvidia/version). After a driver update,
-    # change it and get the new nvidiaHash with:
-    #   nix store prefetch-file https://download.nvidia.com/XFree86/Linux-x86_64/<version>/NVIDIA-Linux-x86_64-<version>.run
-    nvidiaVersion = "580.159.04";
-    nixGLNvidia = (pkgs.callPackage (inputs.nixgl + "/nixGL.nix") {
-      inherit nvidiaVersion;
-      nvidiaHash = "sha256-weZnYbCI0Xs632y2l53przi+JoTRArABoXbc+vq9yh4=";
-      enable32bits = false;
-    }).nixGLNvidia;
+    # nixGL lets rviz2 use the NVIDIA GPU 
+    nixgl = import ../lib/nixgl.nix { inherit pkgs; nixgl = inputs.nixgl; };
     nixGL = ros-pkgs.writeShellScriptBin "nixGL" ''
-      exec ${nixGLNvidia}/bin/nixGLNvidia-${nvidiaVersion} "$@"
+      exec ${nixgl.nixGLNvidia}/bin/nixGLNvidia "$@"
     '';
     ros-env = with ros-pkgs.rosPackages.jazzy; buildEnv {
       paths = [

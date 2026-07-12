@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, pkgs-unstable, config, ... }:
 
 {
 
@@ -9,14 +9,13 @@
     lazygit
     gh-dash
 
-    # warp-terminal (does not work on fedora + nix without gpu support)
-
     steel # steel suite for helix plugins
 
     arduino-ide
     arduino-cli
+  ]) ++ [
+    # (config.lib.nixGL.wrap pkgs-unstable.kicad)
+    (config.lib.nixGL.wrap pkgs-unstable.warp-terminal)
+  ];
 
-    # kicad design electronics circuits (install with system package for better peformance)
-  ]);
-  
 }
