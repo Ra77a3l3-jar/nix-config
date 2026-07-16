@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, nixvim, zen-browser, inputs, ... }:
+{ config, pkgs, pkgs-unstable, nixvim, zen-browser, inputs, system, ... }:
 
 {
   imports = [
@@ -39,12 +39,15 @@
     hmb = "home-manager build --flake ~/.config/nix-config#raffaele@legion";
   };
   
-  home.packages = with pkgs; [
+  home.packages = ( with pkgs; [
     curl
     wget
     man
     man-pages
     nh
+    btop
+  ]) ++ [
+    zen-browser.packages.${system}.default
   ];
   
 }

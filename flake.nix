@@ -71,6 +71,7 @@
           
           extraSpecialArgs = { 
             inherit inputs pkgs-unstable zen-browser nixvim;
+            system = "x86_64-linux";
           };
           
           modules = [
@@ -84,6 +85,7 @@
           
           extraSpecialArgs = { 
             inherit inputs pkgs-unstable zen-browser nixvim;
+            system = "x86_64-linux";
           };
           
           modules = [
