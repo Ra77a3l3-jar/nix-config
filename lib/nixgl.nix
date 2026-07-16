@@ -7,11 +7,11 @@
 { pkgs, nixgl }:
 
 rec {
-  version = "580.159.04";
+  version = "610.43.03";
 
   packages = pkgs.callPackage (nixgl + "/nixGL.nix") {
     nvidiaVersion = version;
-    nvidiaHash = "sha256-weZnYbCI0Xs632y2l53przi+JoTRArABoXbc+vq9yh4=";
+    nvidiaHash = "sha256-ReLUwTSiPDXlDyU6SqY+fl6NF+PRhdSgfIpY6WEu05I=";
     enable32bits = false;
   };
 
