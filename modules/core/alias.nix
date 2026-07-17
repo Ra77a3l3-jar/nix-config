@@ -14,7 +14,7 @@
     nd-asm = "nix develop ~/.config/nix-config#asm -c fish";
     nd-nix = "nix develop ~/.config/nix-config#nix -c fish";
     nd-sh = "nix develop ~/.config/nix-config#bash -c fish";
-    nd-ros = "nix develop ~/.config/nix-config#ros -c fish";
+    nd-ros = "nix develop ~/.config/nix-config#ros --accept-flake-config -c fish";
     
     ex = "exit";
     zl = "zellij";
