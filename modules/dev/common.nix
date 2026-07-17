@@ -13,6 +13,11 @@
 
     arduino-ide
     arduino-cli
+
+    claude-code
+    code-cursor
+    codex
+    mistral-vibe
   ]) ++ [
     # (config.lib.nixGL.wrap pkgs-unstable.kicad)
     (config.lib.nixGL.wrap pkgs-unstable.warp-terminal)
