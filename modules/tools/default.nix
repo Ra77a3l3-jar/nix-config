@@ -9,6 +9,8 @@
         ./fzf.nix
         ./bat.nix
         ./yazi.nix
+        ./gh-dash.nix
+        ./lazygit.nix
         ./common.nix
     ];
     
