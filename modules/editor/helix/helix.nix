@@ -1,9 +1,23 @@
-{ pkgs-unstable, ... }:
+{ config, pkgs-unstable, ... }:
 
 {
   programs.helix = {
     enable = true;
     package = pkgs-unstable.steelix;
+
+    steel = {
+      enable = true;
+      plugins = with config.programs.helix.steel.availablePlugins; [
+        anchor
+        forest
+        glyph
+        moka
+        notify
+        oil
+        trail
+        who
+      ];
+    };
 
     settings = {
        theme = "catppuccin_mocha_transparent";

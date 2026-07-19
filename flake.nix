@@ -40,6 +40,11 @@
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    helix-plugins-nix = {
+      url = "git+https://codeberg.org/maxschipper/helix-plugins-nix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, flake-utils, zen-browser, nixvim, nix-ros-overlay, ... }@inputs: 
