@@ -9,4 +9,8 @@
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
     STEEL_HOME = "${config.home.homeDirectory}/.steel";
   };
+
+  home.sessionPath = [
+    "${config.home.homeDirectory}/.cargo/bin"
+  ];
 }
