@@ -1,9 +1,10 @@
-{ config, pkgs-unstable, ... }:
+{ config, pkgs, helix-steel, ... }:
 
 {
   programs.helix = {
     enable = true;
-    package = pkgs-unstable.steelix;
+    # my helix fork with steel plugin support
+    package = helix-steel.packages.${pkgs.stdenv.hostPlatform.system}.helix;
 
     steel = {
       enable = true;

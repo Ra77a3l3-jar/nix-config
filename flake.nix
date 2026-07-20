@@ -45,9 +45,14 @@
       url = "git+https://codeberg.org/maxschipper/helix-plugins-nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    helix-steel = {
+      url = "github:Ra77a3l3-jar/helix/steel-personal-branch";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, flake-utils, zen-browser, nixvim, nix-ros-overlay, ... }@inputs: 
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, flake-utils, zen-browser, nixvim, nix-ros-overlay, helix-steel, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -74,11 +79,11 @@
         "raffaele@bobasek" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           
-          extraSpecialArgs = { 
-            inherit inputs pkgs-unstable zen-browser nixvim;
+          extraSpecialArgs = {
+            inherit inputs pkgs-unstable zen-browser nixvim helix-steel;
             system = "x86_64-linux";
           };
-          
+
           modules = [
             ./hosts/bobasek/home.nix
           ];
@@ -88,11 +93,11 @@
         "raffaele@legion" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           
-          extraSpecialArgs = { 
-            inherit inputs pkgs-unstable zen-browser nixvim;
+          extraSpecialArgs = {
+            inherit inputs pkgs-unstable zen-browser nixvim helix-steel;
             system = "x86_64-linux";
           };
-          
+
           modules = [
             ./hosts/legion/home.nix
           ];
@@ -102,8 +107,8 @@
         "raffaele" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           
-          extraSpecialArgs = { 
-            inherit inputs pkgs-unstable zen-browser nixvim;
+          extraSpecialArgs = {
+            inherit inputs pkgs-unstable zen-browser nixvim helix-steel;
           };
           
           modules = [
