@@ -83,17 +83,40 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1784227528,
-        "narHash": "sha256-22SuHjFGn4aN1fTmDNfOuG2SckUJHh5cMVbyK9XsSIc=",
-        "ref": "refs/heads/main",
-        "rev": "b4139dfa9b207ca50eecd56dd36b1a7d2355b137",
-        "revCount": 46,
+        "lastModified": 1784550717,
+        "narHash": "sha256-zZPLZKIviRIfuhfO9RztDZM4fdf0fBgRfSIlBcePTQA=",
+        "ref": "personal-branch",
+        "rev": "c1493dcd836b82600f70d2f6867a33b5ed364cd0",
+        "revCount": 50,
         "type": "git",
-        "url": "https://codeberg.org/maxschipper/helix-plugins-nix"
+        "url": "https://codeberg.org/Ra77a3l3-jar/helix-plugins-nix"
       },
       "original": {
+        "ref": "personal-branch",
         "type": "git",
-        "url": "https://codeberg.org/maxschipper/helix-plugins-nix"
+        "url": "https://codeberg.org/Ra77a3l3-jar/helix-plugins-nix"
+      }
+    },
+    "helix-steel": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ],
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1784536346,
+        "narHash": "sha256-htKe963m7u9nVUHbXB9sMiZDBGNb7Msqqdg9iVdKJS0=",
+        "owner": "Ra77a3l3-jar",
+        "repo": "helix",
+        "rev": "470774b6d7a8b599af9b0655f79b9a3ed626b127",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Ra77a3l3-jar",
+        "ref": "steel-personal-branch",
+        "repo": "helix",
+        "type": "github"
       }
     },
     "home-manager": {
@@ -256,6 +279,7 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "helix-plugins-nix": "helix-plugins-nix",
+        "helix-steel": "helix-steel",
         "home-manager": "home-manager",
         "nix-ros-overlay": "nix-ros-overlay",
         "nixgl": "nixgl",
@@ -279,6 +303,27 @@
       "original": {
         "owner": "ros",
         "repo": "rosdistro",
+        "type": "github"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "helix-steel",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775358767,
+        "narHash": "sha256-f2eC+WIfhjevCPQILuV08i/kmKZzYZpUvkom/33VxCA=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "20fd44bc663daa53a2575e01293e24e681d62244",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
         "type": "github"
       }
     },

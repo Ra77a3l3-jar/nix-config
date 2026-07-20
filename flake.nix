@@ -41,8 +41,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # personal repo with plugin derivations and custom fork of plugins
     helix-plugins-nix = {
-      url = "git+https://codeberg.org/maxschipper/helix-plugins-nix";
+      url = "git+https://codeberg.org/Ra77a3l3-jar/helix-plugins-nix?ref=personal-branch";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 

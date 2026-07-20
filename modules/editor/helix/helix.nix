@@ -12,11 +12,11 @@
         anchor
         forest
         glyph
-        moka
+        moka-unstable
         notify
-        oil
+        oil-unstable
         trail
-        who
+        who-unstable
       ];
     };
 
