@@ -21,6 +21,9 @@
       
       # Scrollback
       scrollback_lines = 20000;
+
+      background_opacity = 0.8;
+      background_blur = 25;
       
       # Window
       window_padding_width = 5;
