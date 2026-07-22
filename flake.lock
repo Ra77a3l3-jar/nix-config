@@ -119,6 +119,28 @@
         "type": "github"
       }
     },
+    "herdr": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ],
+        "rust-overlay": "rust-overlay_2"
+      },
+      "locked": {
+        "lastModified": 1784742505,
+        "narHash": "sha256-Q8PoFpLGm/lWvtEWoRXA1kEOllskx+bSzGpoOuT7vy8=",
+        "owner": "Ra77a3l3-jar",
+        "repo": "herdr",
+        "rev": "50c61114a325507e55ddcba69fff9db8c044a900",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Ra77a3l3-jar",
+        "ref": "unstable",
+        "repo": "herdr",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -280,6 +302,7 @@
         "flake-utils": "flake-utils",
         "helix-plugins-nix": "helix-plugins-nix",
         "helix-steel": "helix-steel",
+        "herdr": "herdr",
         "home-manager": "home-manager",
         "nix-ros-overlay": "nix-ros-overlay",
         "nixgl": "nixgl",
@@ -319,6 +342,27 @@
         "owner": "oxalica",
         "repo": "rust-overlay",
         "rev": "20fd44bc663daa53a2575e01293e24e681d62244",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "rust-overlay_2": {
+      "inputs": {
+        "nixpkgs": [
+          "herdr",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783577481,
+        "narHash": "sha256-EWMxOWrJ031f8f/lrcEmhTRs4npw1/5N3Hcjin846c8=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "4cdea398dc491b082dccdce0fad1ed0b75fa3394",
         "type": "github"
       },
       "original": {

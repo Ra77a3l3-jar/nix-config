@@ -51,9 +51,14 @@
       url = "github:Ra77a3l3-jar/helix/steel-personal-branch";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    herdr = {
+      url = "github:Ra77a3l3-jar/herdr/unstable";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, flake-utils, zen-browser, nixvim, nix-ros-overlay, helix-steel, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, flake-utils, zen-browser, nixvim, nix-ros-overlay, helix-steel, herdr, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -81,7 +86,7 @@
           inherit pkgs;
           
           extraSpecialArgs = {
-            inherit inputs pkgs-unstable zen-browser nixvim helix-steel;
+            inherit inputs pkgs-unstable zen-browser nixvim helix-steel herdr;
             system = "x86_64-linux";
           };
 
@@ -95,7 +100,7 @@
           inherit pkgs;
           
           extraSpecialArgs = {
-            inherit inputs pkgs-unstable zen-browser nixvim helix-steel;
+            inherit inputs pkgs-unstable zen-browser nixvim helix-steel herdr;
             system = "x86_64-linux";
           };
 
