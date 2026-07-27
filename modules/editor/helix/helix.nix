@@ -17,6 +17,8 @@
         oil-unstable
         trail
         who-unstable
+        scopeline
+        scooter
       ];
     };
 
