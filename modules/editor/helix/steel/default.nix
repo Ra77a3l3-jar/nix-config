@@ -16,7 +16,7 @@ let
   # home.file targets must be relative to the home directory
   steelHomeRel = lib.removePrefix "${config.home.homeDirectory}/" steelHome;
 
-  # includes plugin dependencies with passthru.pluginDependencies
+  # includes plugin dependencies with passthru.dependencies
   flattenPlugins =
     plugins:
     map (item: item.val) (
@@ -30,12 +30,13 @@ let
           map (p: {
             key = p.pluginName;
             val = p;
-          }) (item.val.pluginDependencies or [ ]);
+          }) (item.val.dependencies or [ ]);
       }
     );
 
   allPlugins = flattenPlugins cfg.plugins;
-  nativePlugins = builtins.filter (drv: drv ? native) allPlugins;
+  # pure plugins carry passthru.native = null; native plugins expose a `native` output
+  nativePlugins = builtins.filter (drv: (drv.native or null) != null) allPlugins;
 
   cogLinks = builtins.listToAttrs (
     map (drv: {
