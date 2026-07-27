@@ -83,11 +83,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1785160221,
-        "narHash": "sha256-2ZdWscb9jPSh8bSMeWR1jYbQv0KBv7xmgIO/s+6pQoA=",
+        "lastModified": 1785165775,
+        "narHash": "sha256-rRiM7imI2UhpR1O5JJqpiDAqoU/rWO52bkeTE5DK2JA=",
         "ref": "personal-branch",
-        "rev": "2c709720c14204734c939e3468fff5162a4a9bd0",
-        "revCount": 85,
+        "rev": "04c0903a43aa30d169751651d5c93fc40a7c2369",
+        "revCount": 86,
         "type": "git",
         "url": "https://codeberg.org/Ra77a3l3-jar/helix-plugins-nix"
       },
