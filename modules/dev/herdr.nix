@@ -1,7 +1,9 @@
 { herdr, pkgs, ... }:
 
 {
-  imports = [ herdr.homeManagerModules.default ];
+  imports = [
+    herdr.homeManagerModules.default
+  ];
 
   programs.herdr = {
     enable = true;
@@ -10,7 +12,7 @@
     settings = {
 
       onboarding = false;
-      theme.name = "catppuccin";
+      theme.name = "tokyo-night";
 
       terminal = {
         default_shell = "fish";
@@ -38,6 +40,14 @@
 
         next_agent = "prefix+up";
         previous_agent = "prefix+down";
+
+        command = [
+          {
+            key = "prefix+f";
+            type = "shell";
+            command = "herdr plugin action invoke open-file-viewer-tab --plugin herdr-file-viewer";
+          }
+        ];
       };
     };
   };
