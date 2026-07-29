@@ -68,7 +68,7 @@ in
       type = lib.types.attrs;
       readOnly = true;
       default =
-        inputs.helix-plugins-nix.packages.${pkgs.stdenv.hostPlatform.system}.helixPlugins;
+        inputs.helix-plugins-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system}.helixPlugins;
       defaultText = lib.literalExpression "helix-plugins-nix plugin set";
       description = "The helix-plugins-nix plugin set for this system.";
     };
