@@ -83,18 +83,18 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1785343805,
-        "narHash": "sha256-kA7FmAZZUNTfYgRZ9wDrqtBjwS4hOYpuDwDNPIAU2uc=",
+        "lastModified": 1785502208,
+        "narHash": "sha256-7C1qkkwLzJ9sV/QzkJY5l4dfJj5a/ioT+aBUoDjr7rg=",
         "ref": "personal-branch",
-        "rev": "22c8ce3ccdbf70e69dc060e03b2fef1e28789bdf",
-        "revCount": 121,
+        "rev": "c977dfbfa5781ee2cf020b92054418964256566b",
+        "revCount": 148,
         "type": "git",
-        "url": "https://codeberg.org/Ra77a3l3-jar/helix-plugins-nix"
+        "url": "ssh://git@codeberg.org/Ra77a3l3-jar/helix-plugins-nix"
       },
       "original": {
         "ref": "personal-branch",
         "type": "git",
-        "url": "https://codeberg.org/Ra77a3l3-jar/helix-plugins-nix"
+        "url": "ssh://git@codeberg.org/Ra77a3l3-jar/helix-plugins-nix"
       }
     },
     "helix-steel": {
@@ -105,11 +105,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1785340945,
-        "narHash": "sha256-UHMJXTsP4ZueVJ0ixSdZZ51180bYqU8Xbln4d2sNzdk=",
+        "lastModified": 1785398410,
+        "narHash": "sha256-D8eTdKyWtzjj90AE7qxzJdeBAS2xPEevlDm/dAAMGy0=",
         "owner": "Ra77a3l3-jar",
         "repo": "helix",
-        "rev": "f5a56e73a723b6aefc9a11ee8dc7034765313638",
+        "rev": "2a56cb544850315733b17a9c0b1d08ae30ff8d56",
         "type": "github"
       },
       "original": {

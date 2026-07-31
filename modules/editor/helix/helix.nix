@@ -19,6 +19,8 @@
         who-unstable
         scopeline
         scooter
+        vista
+        cliff
       ];
     };
 
