@@ -135,12 +135,12 @@ Bootstrap Home Manager with the appropriate configuration for your machine:
 
 **For school laptop:**
 ```bash
-nix run home-manager/release-25.11 -- init --switch --flake ~/.config/nix-config#raffaele@bobasek
+nix run home-manager/release-26.05 -- switch --flake ~/.config/nix-config#raffaele@bobasek
 ```
 
 **For personal PC:**
 ```bash
-nix run home-manager/release-25.11 -- init --switch --flake ~/.config/nix-config#raffaele@legion
+nix run home-manager/release-26.05 -- switch --flake ~/.config/nix-config#raffaele@legion
 ```
 
 ### 6. Apply Configuration

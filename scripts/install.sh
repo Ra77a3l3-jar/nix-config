@@ -36,6 +36,6 @@ if [ ! -d "$REPO_DIR/.git" ]; then
 fi
 
 echo "Installing Home Manager"
-echo "nix run home-manager/release-25.11 -- init --switch --flake ~/.config/nix-config#raffaele@legion"
+echo "nix run home-manager/release-26.05 -- init --switch --flake ~/.config/nix-config#raffaele@legion"
 
 echo "Done. Log out and back in if this was the first run."
