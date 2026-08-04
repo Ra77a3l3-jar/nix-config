@@ -143,7 +143,21 @@ nix run home-manager/release-26.05 -- switch --flake ~/.config/nix-config#raffae
 nix run home-manager/release-26.05 -- switch --flake ~/.config/nix-config#raffaele@legion
 ```
 
-### 6. Apply Configuration
+### 6. GPU setup
+
+Nix GUI apps (Ghostty, Kitty, Wezterm, Zed, ...) use the GPU through
+`/run/opengl-driver`, which Home Manager sets up via
+`targets.genericLinux.gpu`. After the first `hms`, run once:
+
+```bash
+./setup_gpu.sh
+```
+
+This requires `sudo` and creates the driver symlinks (persisted with
+systemd-tmpfiles, so it survives reboots). Re-run it after a driver update
+when Home Manager warns that the driver path changed.
+
+### 7. Apply Configuration
 
 After the initial setup, you can use the built-in aliases to manage your configuration:
 
