@@ -70,11 +70,6 @@ in
       overlays = [ inputs.nix-ros-overlay.overlays.default ];
       config.allowUnfree = true;
     };
-    # nixGL lets rviz2 use the NVIDIA GPU 
-    nixgl = import ../lib/nixgl.nix { inherit pkgs; nixgl = inputs.nixgl; };
-    nixGL = ros-pkgs.writeShellScriptBin "nixGL" ''
-      exec ${nixgl.nixGLNvidia}/bin/nixGLNvidia "$@"
-    '';
     ros-env = with ros-pkgs.rosPackages.jazzy; buildEnv {
       paths = [
         ros-core
@@ -89,16 +84,11 @@ in
     };
   in ros-pkgs.mkShell {
     packages = [
-      # GPU-wrapped rviz2; listed first so it wins over the plain one below
-      (ros-pkgs.writeShellScriptBin "rviz2" ''
-        exec ${nixGL}/bin/nixGL ${ros-env}/bin/rviz2 "$@"
-      '')
-      nixGL
       ros-pkgs.colcon
       ros-env
     ];
     shellHook = ''
-      echo "ROS2 Jazzy dev environment (rviz2 is nixGL-wrapped)"
+      echo "ROS2 Jazzy dev environment"
     '';
   };
 

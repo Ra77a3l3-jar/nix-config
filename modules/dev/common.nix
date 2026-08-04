@@ -17,7 +17,7 @@
     codex
     mistral-vibe
   ]) ++ [
-    (config.lib.nixGL.wrap pkgs-unstable.kicad)
+    pkgs-unstable.kicad
   ];
 
 }

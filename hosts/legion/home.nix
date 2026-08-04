@@ -19,17 +19,15 @@
 
   nix.package = pkgs.nix;
 
-  # Allows nix GUI apps to use the NVIDIA GPU. Modules install GUI apps through
-  # config.lib.nixGL.wrap, and this picks which wrapper that uses.
-  # Vulkan is on because zed renders with it. Driver pin: lib/nixgl.nix
-  targets.genericLinux.nixGL = let
-    nixgl = import ../../lib/nixgl.nix { inherit pkgs; nixgl = inputs.nixgl; };
-  in {
-    packages = { inherit (nixgl) nixGLNvidia nixVulkanNvidia; };
-    defaultWrapper = "nvidia";
-    vulkan.enable = true;
-    # provides nixGLNvidia command to run any other app on the GPU
-    installScripts = [ "nvidia" ];
+  # NVIDIA GPU integration for nix apps via /run/opengl-driver.
+  # The version must match the Fedora driver (see scripts/update-nvidia-driver.sh).
+  targets.genericLinux.gpu = {
+    enable = true;
+    nvidia = {
+      enable = true;
+      version = "610.43.03";
+      sha256 = "sha256-ReLUwTSiPDXlDyU6SqY+fl6NF+PRhdSgfIpY6WEu05I=";
+    };
   };
 
 

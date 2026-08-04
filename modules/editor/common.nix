@@ -6,8 +6,7 @@
 
   ] ++ (with pkgs-unstable; [
     neovim
-  ]) ++ [
-    (config.lib.nixGL.wrap pkgs-unstable.zed-editor)
-  ];
+    zed-editor
+  ]);
 
 }

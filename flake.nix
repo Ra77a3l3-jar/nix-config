@@ -29,17 +29,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    neovim-nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     # pinened ros version to use cache instead of builing everything
     nix-ros-overlay = {
       url = "github:lopsided98/nix-ros-overlay/13634b579b61299abfc5389d7d47dd7d1701a3a2";
       inputs.nixpkgs.follows = "nixpkgs-ros";
     };
     nixpkgs-ros.url = "github:NixOS/nixpkgs/d233902339c02a9c334e7e593de68855ad26c4cb";
-
-    nixgl = {
-      url = "github:nix-community/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     # personal repo with plugin derivations and custom fork of plugins
     helix-plugins-nix = {
@@ -58,12 +58,15 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, flake-utils, zen-browser, nixvim, nix-ros-overlay, helix-steel, herdr, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, flake-utils, zen-browser, nixvim, neovim-nvf, nix-ros-overlay, helix-steel, herdr, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
-        config.allowUnfree = true;
+        config = {
+          allowUnfree = true;
+          nvidia.acceptLicense = true;
+        };
       };
       pkgs-unstable = import nixpkgs-unstable {
         inherit system;
@@ -86,7 +89,7 @@
           inherit pkgs;
           
           extraSpecialArgs = {
-            inherit inputs pkgs-unstable zen-browser nixvim helix-steel herdr;
+            inherit inputs pkgs-unstable zen-browser nixvim neovim-nvf helix-steel herdr;
             system = "x86_64-linux";
           };
 
@@ -100,7 +103,7 @@
           inherit pkgs;
           
           extraSpecialArgs = {
-            inherit inputs pkgs-unstable zen-browser nixvim helix-steel herdr;
+            inherit inputs pkgs-unstable zen-browser nixvim neovim-nvf helix-steel herdr;
             system = "x86_64-linux";
           };
 

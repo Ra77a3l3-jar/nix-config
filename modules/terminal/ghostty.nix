@@ -1,7 +1,7 @@
 { config, pkgs-unstable, ... }:
 
 let
-  ghosttyPkg = config.lib.nixGL.wrap pkgs-unstable.ghostty;
+  ghosttyPkg = pkgs-unstable.ghostty;
 in
 {
   programs.ghostty = {
@@ -35,8 +35,7 @@ in
       background-opacity = 0.85;
       background-blur-radius = 25;
 
-      # disable D-Bus single instance so gnome launches with Exec= directly
-      # (bypassing the systemd service that doesn't have the nixGL wrapper)
+      # disable D-Bus single instance so GNOME launches the binary directly
       gtk-single-instance = false;
     };
   };

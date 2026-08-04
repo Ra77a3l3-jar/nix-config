@@ -19,10 +19,9 @@
 
   nix.package = pkgs.nix;
 
-  # let use Mesa for nix app
-  targets.genericLinux.nixGL = {
-    packages = pkgs.callPackage (inputs.nixgl + "/nixGL.nix") { };
-    defaultWrapper = "mesa";
+  # Mesa GPU integration for nix apps via /run/opengl-driver
+  targets.genericLinux.gpu = {
+    enable = true;
   };
 
 
