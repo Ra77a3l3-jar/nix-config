@@ -30,6 +30,11 @@
     };
   };
 
+  # nix Vulkan apps (zed, ...) don't scan /run/opengl-driver for ICDs;
+  # point them at the driver's Vulkan ICD.
+  home.sessionVariables.VK_ICD_FILENAMES =
+    "/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.json";
+
 
   # Machine-specific aliases for home-manager
   home.shellAliases = {
