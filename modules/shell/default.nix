@@ -2,10 +2,10 @@
 
 {
 
-    imports = [
-        ./fish.nix
-        ./zsh.nix
-        ./common.nix
-    ];
-    
+  imports = [
+    ./fish.nix
+    ./zsh.nix
+    ./common.nix
+  ];
+
 }

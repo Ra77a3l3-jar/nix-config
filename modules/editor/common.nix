@@ -1,12 +1,20 @@
-{ pkgs, pkgs-unstable, config, ... }:
+{
+  pkgs,
+  pkgs-unstable,
+  config,
+  ...
+}:
 
 {
 
-  home.packages = with pkgs; [
+  home.packages =
+    with pkgs;
+    [
 
-  ] ++ (with pkgs-unstable; [
-    neovim
-    zed-editor
-  ]);
+    ]
+    ++ (with pkgs-unstable; [
+      neovim
+      zed-editor
+    ]);
 
 }

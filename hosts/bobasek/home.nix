@@ -1,4 +1,12 @@
-{ config, pkgs, pkgs-unstable, nixvim, zen-browser, inputs, ... }:
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  nixvim,
+  zen-browser,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -10,7 +18,7 @@
     ../../modules/tools/default.nix
     ../../modules/dev/default.nix
   ];
-  
+
   home.username = "raffaele";
   home.homeDirectory = "/home/raffaele";
   home.stateVersion = "26.05";
@@ -24,13 +32,12 @@
     enable = true;
   };
 
-
   # Machine-specific aliases for home-manager
   home.shellAliases = {
     hms = "home-manager switch --flake ~/.config/nix-config#raffaele@bobasek";
     hmb = "home-manager build --flake ~/.config/nix-config#raffaele@bobasek";
   };
-  
+
   home.packages = with pkgs; [
     curl
     wget

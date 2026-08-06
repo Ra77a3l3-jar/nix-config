@@ -8,5 +8,5 @@
 
     enableFishIntegration = true;
   };
-  
+
 }

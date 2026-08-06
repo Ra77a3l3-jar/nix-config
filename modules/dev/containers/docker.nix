@@ -7,5 +7,5 @@
     docker-compose
     lazydocker
   ];
-  
+
 }

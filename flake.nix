@@ -11,19 +11,19 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    
+
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     flake-utils.url = "github:numtide/flake-utils";
-    
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -58,7 +58,21 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, flake-utils, zen-browser, nixvim, neovim-nvf, nix-ros-overlay, helix-steel, herdr, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      home-manager,
+      flake-utils,
+      zen-browser,
+      nixvim,
+      neovim-nvf,
+      nix-ros-overlay,
+      helix-steel,
+      herdr,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -74,22 +88,31 @@
       };
     in
     {
-      devShells = let
-        shells = import ./devshells/flake.nix {
-          inherit inputs system;
+      devShells =
+        let
+          shells = import ./devshells/flake.nix {
+            inherit inputs system;
+          };
+        in
+        {
+          ${system} = shells;
         };
-      in
-      {
-        ${system} = shells;
-      };
-      
+
       homeConfigurations = {
         # School/Travel laptop configuration
         "raffaele@bobasek" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          
+
           extraSpecialArgs = {
-            inherit inputs pkgs-unstable zen-browser nixvim neovim-nvf helix-steel herdr;
+            inherit
+              inputs
+              pkgs-unstable
+              zen-browser
+              nixvim
+              neovim-nvf
+              helix-steel
+              herdr
+              ;
             system = "x86_64-linux";
           };
 
@@ -97,13 +120,21 @@
             ./hosts/bobasek/home.nix
           ];
         };
-        
+
         # Personal PC configuration
         "raffaele@legion" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          
+
           extraSpecialArgs = {
-            inherit inputs pkgs-unstable zen-browser nixvim neovim-nvf helix-steel herdr;
+            inherit
+              inputs
+              pkgs-unstable
+              zen-browser
+              nixvim
+              neovim-nvf
+              helix-steel
+              herdr
+              ;
             system = "x86_64-linux";
           };
 
@@ -111,15 +142,21 @@
             ./hosts/legion/home.nix
           ];
         };
-        
+
         # Legacy alias (keep for backward compatibility)
         "raffaele" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          
+
           extraSpecialArgs = {
-            inherit inputs pkgs-unstable zen-browser nixvim helix-steel;
+            inherit
+              inputs
+              pkgs-unstable
+              zen-browser
+              nixvim
+              helix-steel
+              ;
           };
-          
+
           modules = [
             ./home.nix
           ];

@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.desktop.gnome;
@@ -29,20 +34,17 @@ in
       type = lib.types.float;
       default = 1.0;
     };
-    
+
   };
 
   config = {
     dconf.settings = {
       "org/gnome/desktop/interface" = {
-        font-name =
-          "${cfg.uiFont} ${toString cfg.fontSize}";
+        font-name = "${cfg.uiFont} ${toString cfg.fontSize}";
 
-        document-font-name =
-          "${cfg.documentFont} ${toString cfg.fontSize}";
+        document-font-name = "${cfg.documentFont} ${toString cfg.fontSize}";
 
-        monospace-font-name =
-          "${cfg.monoFont} ${toString cfg.fontSize}";
+        monospace-font-name = "${cfg.monoFont} ${toString cfg.fontSize}";
 
         text-scaling-factor = cfg.textScaling;
 
@@ -59,6 +61,6 @@ in
         exec = "kitty";
       };
     };
-    
+
   };
 }

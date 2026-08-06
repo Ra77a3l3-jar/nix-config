@@ -10,8 +10,7 @@ let
 
   # use STEEL_HOME if it is defined, else flaback to default
   steelHome =
-    config.home.sessionVariables.STEEL_HOME
-      or "${config.home.homeDirectory}/.local/share/steel";
+    config.home.sessionVariables.STEEL_HOME or "${config.home.homeDirectory}/.local/share/steel";
 
   # home.file targets must be relative to the home directory
   steelHomeRel = lib.removePrefix "${config.home.homeDirectory}/" steelHome;
@@ -59,16 +58,14 @@ in
     plugins = lib.mkOption {
       type = lib.types.listOf lib.types.package;
       default = [ ];
-      example = lib.literalExpression
-        "with config.programs.helix.steel.availablePlugins; [ oil forest ]";
+      example = lib.literalExpression "with config.programs.helix.steel.availablePlugins; [ oil forest ]";
       description = "Steel plugins to link into STEEL_HOME/cogs.";
     };
 
     availablePlugins = lib.mkOption {
       type = lib.types.attrs;
       readOnly = true;
-      default =
-        inputs.helix-plugins-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system}.helixPlugins;
+      default = inputs.helix-plugins-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system}.helixPlugins;
       defaultText = lib.literalExpression "helix-plugins-nix plugin set";
       description = "The helix-plugins-nix plugin set for this system.";
     };

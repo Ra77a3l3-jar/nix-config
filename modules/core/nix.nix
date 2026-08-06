@@ -3,7 +3,10 @@
 {
   nix = {
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
   };
 
@@ -15,4 +18,3 @@
   # Critical to load enviorments on login
   targets.genericLinux.enable = true;
 }
-

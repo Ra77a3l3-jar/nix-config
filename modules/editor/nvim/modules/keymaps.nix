@@ -4,7 +4,10 @@
   config.vim.keymaps = [
     {
       key = "ge";
-      mode = [ "n" "x" ];
+      mode = [
+        "n"
+        "x"
+      ];
       action = "G";
       desc = "Go to end of file";
     }

@@ -1,4 +1,11 @@
-{ config, pkgs, pkgs-unstable, nixvim, zen-browser, ... }:
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  nixvim,
+  zen-browser,
+  ...
+}:
 
 {
   imports = [
@@ -10,7 +17,7 @@
     ./modules/tools/default.nix
     ./modules/dev/default.nix
   ];
-  
+
   home.username = "raffaele";
   home.homeDirectory = "/home/raffaele";
   home.stateVersion = "26.05";
@@ -18,7 +25,7 @@
   programs.home-manager.enable = true;
 
   nix.package = pkgs.nix;
-  
+
   home.packages = with pkgs; [
     curl
     wget

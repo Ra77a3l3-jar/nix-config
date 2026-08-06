@@ -1,4 +1,9 @@
-{ config, pkgs, helix-steel, ... }:
+{
+  config,
+  pkgs,
+  helix-steel,
+  ...
+}:
 
 {
   programs.helix = {
@@ -25,14 +30,14 @@
     };
 
     settings = {
-       theme = "catppuccin_mocha_transparent";
-      
+      theme = "catppuccin_mocha_transparent";
+
       editor = {
         scrolloff = 999;
         line-number = "relative";
         bufferline = "multiple";
         mouse = false;
-        
+
         true-color = true;
         color-modes = true;
         rainbow-brackets = true;
@@ -55,9 +60,20 @@
         };
 
         statusline = {
-          left = [ "mode" "spinner" "file-name" ];
+          left = [
+            "mode"
+            "spinner"
+            "file-name"
+          ];
           center = [ "version-control" ];
-          right = [ "diagnostics" "selections" "position" "file-encoding" "file-line-ending" "file-type" ];
+          right = [
+            "diagnostics"
+            "selections"
+            "position"
+            "file-encoding"
+            "file-line-ending"
+            "file-type"
+          ];
           separator = "│";
           mode = {
             normal = "NOR";

@@ -10,5 +10,5 @@
     # Lsp
     pyright
   ];
-  
+
 }

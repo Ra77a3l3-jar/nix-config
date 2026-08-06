@@ -2,10 +2,10 @@
 
 {
 
-    imports = [
-      ./helix.nix
-      ./languages.nix
-      ./steel
-    ];
-    
+  imports = [
+    ./helix.nix
+    ./languages.nix
+    ./steel
+  ];
+
 }

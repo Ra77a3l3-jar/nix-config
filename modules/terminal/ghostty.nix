@@ -47,7 +47,10 @@ in
     comment = "A terminal emulator";
     exec = "${ghosttyPkg}/bin/ghostty";
     icon = "com.mitchellh.ghostty";
-    categories = [ "System" "TerminalEmulator" ];
+    categories = [
+      "System"
+      "TerminalEmulator"
+    ];
     startupNotify = true;
     settings = {
       StartupWMClass = "com.mitchellh.ghostty";

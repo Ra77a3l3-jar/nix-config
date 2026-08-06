@@ -28,35 +28,37 @@ in
       pkgs.fourmolu
       pkgs.hlint
 
-      (hpkgs.ghcWithPackages (p: with p; [
-        text
-        bytestring
-        containers
-        unordered-containers
-        vector
-        aeson
-        aeson-pretty
-        generic-aeson
-        optparse-applicative
-        mtl
-        transformers
-        exceptions
-        safe-exceptions
-        async
-        stm
-        unliftio
-        http-conduit
-        servant
-        servant-server
-        wai
-        warp
-        megaparsec
-        pretty-simple
-        lens
-        directory
-        filepath
-        random
-      ]))
+      (hpkgs.ghcWithPackages (
+        p: with p; [
+          text
+          bytestring
+          containers
+          unordered-containers
+          vector
+          aeson
+          aeson-pretty
+          generic-aeson
+          optparse-applicative
+          mtl
+          transformers
+          exceptions
+          safe-exceptions
+          async
+          stm
+          unliftio
+          http-conduit
+          servant
+          servant-server
+          wai
+          warp
+          megaparsec
+          pretty-simple
+          lens
+          directory
+          filepath
+          random
+        ]
+      ))
     ];
 
     shellHook = ''
@@ -64,33 +66,37 @@ in
     '';
   };
 
-  ros = let
-    ros-pkgs = import inputs.nix-ros-overlay.inputs.nixpkgs {
-      inherit system;
-      overlays = [ inputs.nix-ros-overlay.overlays.default ];
-      config.allowUnfree = true;
-    };
-    ros-env = with ros-pkgs.rosPackages.jazzy; buildEnv {
-      paths = [
-        ros-core
-        ros-base
-        rviz2
-        rqt
-        navigation2
-        tf2-ros
-        tf2-tools
-        rmw-fastrtps-cpp
+  ros =
+    let
+      ros-pkgs = import inputs.nix-ros-overlay.inputs.nixpkgs {
+        inherit system;
+        overlays = [ inputs.nix-ros-overlay.overlays.default ];
+        config.allowUnfree = true;
+      };
+      ros-env =
+        with ros-pkgs.rosPackages.jazzy;
+        buildEnv {
+          paths = [
+            ros-core
+            ros-base
+            rviz2
+            rqt
+            navigation2
+            tf2-ros
+            tf2-tools
+            rmw-fastrtps-cpp
+          ];
+        };
+    in
+    ros-pkgs.mkShell {
+      packages = [
+        ros-pkgs.colcon
+        ros-env
       ];
+      shellHook = ''
+        echo "ROS2 Jazzy dev environment"
+      '';
     };
-  in ros-pkgs.mkShell {
-    packages = [
-      ros-pkgs.colcon
-      ros-env
-    ];
-    shellHook = ''
-      echo "ROS2 Jazzy dev environment"
-    '';
-  };
 
   go = pkgs.mkShell {
     packages = [

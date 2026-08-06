@@ -15,13 +15,13 @@
     nd-nix = "nix develop ~/.config/nix-config#nix -c fish";
     nd-sh = "nix develop ~/.config/nix-config#bash -c fish";
     nd-ros = "nix develop ~/.config/nix-config#ros --accept-flake-config -c fish";
-    
+
     ex = "exit";
     zl = "zellij";
     cl = "clear";
     hs = "history";
     cd = "z";
-    
+
     gs = "git status";
     gc = "git checkout";
     ga = "git add";
@@ -29,10 +29,10 @@
     gf = "git fetch";
     gp = "git pull";
     gP = "git push";
-    
+
     lgit = "lazygit";
     ldoc = "lazydocker";
-    
+
     la = "eza -la --icons";
     ltree = "eza --tree --level=3 --long --git --icons";
     ls = "eza --icons";

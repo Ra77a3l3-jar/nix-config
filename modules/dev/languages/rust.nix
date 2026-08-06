@@ -6,5 +6,5 @@
     # (cargo, fmt, lsp will be downloaded from rustup)
     rustup
   ];
-  
+
 }

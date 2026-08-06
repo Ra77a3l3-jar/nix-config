@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
   xdg = {
@@ -15,13 +20,13 @@
   # Force an update of the desktop database after switching generations
   # This helps applications appear immediately without a reboot
   home.activation = {
-    updateDesktopDatabase = lib.hm.dag.entryAfter ["writeBoundary"] ''
-       if [ -d "${config.home.homeDirectory}/.nix-profile/share/applications" ]; then
-         $DRY_RUN_CMD ${pkgs.desktop-file-utils}/bin/update-desktop-database ${config.home.homeDirectory}/.nix-profile/share/applications
-       fi
-       if [ -d "${config.home.homeDirectory}/.local/share/applications" ]; then
-         $DRY_RUN_CMD ${pkgs.desktop-file-utils}/bin/update-desktop-database ${config.home.homeDirectory}/.local/share/applications
-       fi
+    updateDesktopDatabase = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      if [ -d "${config.home.homeDirectory}/.nix-profile/share/applications" ]; then
+        $DRY_RUN_CMD ${pkgs.desktop-file-utils}/bin/update-desktop-database ${config.home.homeDirectory}/.nix-profile/share/applications
+      fi
+      if [ -d "${config.home.homeDirectory}/.local/share/applications" ]; then
+        $DRY_RUN_CMD ${pkgs.desktop-file-utils}/bin/update-desktop-database ${config.home.homeDirectory}/.local/share/applications
+      fi
     '';
   };
 }

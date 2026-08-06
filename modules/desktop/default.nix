@@ -2,8 +2,8 @@
 
 {
 
-    imports = [
-        ./gnome/default.nix
-    ];
-    
+  imports = [
+    ./gnome/default.nix
+  ];
+
 }

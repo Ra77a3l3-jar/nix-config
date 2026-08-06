@@ -12,4 +12,3 @@
     nerd-fonts.caskaydia-mono
   ];
 }
-
