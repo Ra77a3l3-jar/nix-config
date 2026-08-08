@@ -135,7 +135,7 @@ in
 
   nix = pkgs.mkShell {
     packages = [
-      pkgs.nixd
+      pkgs.nil
       pkgs.nixpkgs-fmt
       pkgs.statix
       pkgs.nix-init
