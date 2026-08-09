@@ -52,6 +52,11 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    nhx = {
+      url = "git+ssh://git@codeberg.org/Ra77a3l3-jar/nhx.git";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     herdr = {
       url = "github:Ra77a3l3-jar/herdr/unstable";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -70,6 +75,7 @@
       neovim-nvf,
       nix-ros-overlay,
       helix-steel,
+      nhx,
       herdr,
       ...
     }@inputs:
@@ -111,6 +117,7 @@
               nixvim
               neovim-nvf
               helix-steel
+              nhx
               herdr
               ;
             system = "x86_64-linux";
@@ -133,6 +140,7 @@
               nixvim
               neovim-nvf
               helix-steel
+              nhx
               herdr
               ;
             system = "x86_64-linux";

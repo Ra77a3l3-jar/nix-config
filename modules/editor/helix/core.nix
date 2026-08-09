@@ -1,32 +1,28 @@
 {
   config,
+  lib,
   pkgs,
   helix-steel,
+  helixPlugins,
   ...
 }:
 
 {
-  programs.helix = {
+  programs.nhx = {
     enable = true;
-    # my helix fork with steel plugin support
+
+    plugins = with helixPlugins; [
+      trail
+      anchor
+      cliff
+      vista
+      scooter
+    ];
+
     package = helix-steel.packages.${pkgs.stdenv.hostPlatform.system}.helix;
 
     steel = {
       enable = true;
-      plugins = with config.programs.helix.steel.availablePlugins; [
-        anchor
-        forest
-        glyph
-        moka-unstable
-        notify
-        oil-unstable
-        trail
-        who-unstable
-        scopeline
-        scooter
-        vista
-        cliff
-      ];
     };
 
     settings = {
@@ -43,7 +39,7 @@
         rainbow-brackets = true;
 
         auto-completion = true;
-        completion-trigger-len = 2;
+        completion-trigger-len = 1;
         completion-timeout = 5;
         continue-comments = false;
 

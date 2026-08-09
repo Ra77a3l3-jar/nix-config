@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  programs.helix.languages = {
+  programs.nhx.languages = {
     language-server = {
       arduino-language-server = {
         command = "arduino-language-server";

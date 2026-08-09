@@ -1,11 +1,11 @@
-{ ... }:
+{ config, lib, nhx, ... }:
 
 {
-
   imports = [
-    ./helix.nix
+    nhx.homeManagerModules.nhx
+    ./core.nix
+    ./keybinds.nix
     ./languages.nix
-    ./steel
+    ./plugins
   ];
-
 }
