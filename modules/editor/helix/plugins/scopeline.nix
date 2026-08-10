@@ -10,6 +10,7 @@
     enable = true;
     config = {
       showFile = false;
+      alwaysReserved = true;
     };
   };
 }
