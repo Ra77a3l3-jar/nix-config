@@ -2,12 +2,17 @@
   config,
   lib,
   pkgs,
+  inputs,
   helix-steel,
   helixPlugins,
   ...
 }:
 
 {
+  imports = [
+    inputs.nhx.homeManagerModules.default
+  ];
+
   programs.nhx = {
     enable = true;
 

@@ -1,8 +1,7 @@
-{ config, lib, nhx, ... }:
+{ config, lib, ... }:
 
 {
   imports = [
-    nhx.homeManagerModules.nhx
     ./core.nix
     ./keybinds.nix
     ./languages.nix
