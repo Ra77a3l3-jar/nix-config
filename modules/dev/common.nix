@@ -21,10 +21,10 @@
       arduino-ide
       arduino-cli
 
-      claude-code
-      code-cursor
+      # claude-code
+      # code-cursor
       codex
-      mistral-vibe
+      # mistral-vibe
     ])
     ++ [
       pkgs-unstable.kicad
