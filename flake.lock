@@ -225,11 +225,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787471469,
-        "narHash": "sha256-KA5lirk4VTJJE94I+nI8lzS3HIT6NwxsJfaUyx4K3JQ=",
+        "lastModified": 1787494545,
+        "narHash": "sha256-b4HoZNJFx36eWX0OIrFWQXLA4iE5co2d0mEktABw7Nc=",
         "owner": "Ra77a3l3-jar",
         "repo": "nhx",
-        "rev": "02ad46fd88697c09a21f961c6182fe98d9b01111",
+        "rev": "43db31deab5372e3c941ada0db916387a18c424a",
         "type": "github"
       },
       "original": {
