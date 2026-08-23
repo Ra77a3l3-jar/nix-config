@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  programs.nhx.plugins."moka-unstable" = {
+  programs.nhx.plugins.moka = {
     enable = true;
     config = {
       transparent = true;

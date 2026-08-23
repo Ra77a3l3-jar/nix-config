@@ -7,7 +7,7 @@
 {
   imports = [
     ./forest.nix
-    ./moka-unstable.nix
+    ./moka.nix
     ./oil-unstable.nix
     ./scopeline.nix
     ./who-unstable.nix
