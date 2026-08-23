@@ -104,11 +104,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1787425099,
-        "narHash": "sha256-+CvjNYCL8royiQVd6JLZAt4d6xaQTHQDIze7Ox4B6rc=",
+        "lastModified": 1787475291,
+        "narHash": "sha256-/LCd1c+g3T+KKPlHsKV6DU27tlTpz2/6eJiA4iOm2iA=",
         "owner": "Ra77a3l3-jar",
         "repo": "herdnix",
-        "rev": "a66e49a4484dc1685c84c939a62ccb687264e801",
+        "rev": "2ef66dc95aa56d7de109553bee0d4feaccaed7e1",
         "type": "github"
       },
       "original": {
