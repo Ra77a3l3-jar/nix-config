@@ -73,28 +73,6 @@
         "type": "github"
       }
     },
-    "helix-plugins-nix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs-unstable"
-        ],
-        "systems": "systems_2"
-      },
-      "locked": {
-        "lastModified": 1785502208,
-        "narHash": "sha256-7C1qkkwLzJ9sV/QzkJY5l4dfJj5a/ioT+aBUoDjr7rg=",
-        "ref": "personal-branch",
-        "rev": "c977dfbfa5781ee2cf020b92054418964256566b",
-        "revCount": 148,
-        "type": "git",
-        "url": "ssh://git@codeberg.org/Ra77a3l3-jar/helix-plugins-nix"
-      },
-      "original": {
-        "ref": "personal-branch",
-        "type": "git",
-        "url": "ssh://git@codeberg.org/Ra77a3l3-jar/helix-plugins-nix"
-      }
-    },
     "helix-steel": {
       "inputs": {
         "nixpkgs": [
@@ -103,11 +81,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1787386268,
-        "narHash": "sha256-CKFkv6hIaUcGa4P43rI3kizzA3upKVsfgWXMLrrUvpI=",
+        "lastModified": 1787468318,
+        "narHash": "sha256-dI2+grZEMR6lJVb4nEpjfqXRlS7jqcB+0jNtZcNGDR4=",
         "owner": "Ra77a3l3-jar",
         "repo": "helix",
-        "rev": "5f40ffc71f197dab6239c5575956c23d77ad1bdb",
+        "rev": "206760851137088234331c282ff109ddaa10de52",
         "type": "github"
       },
       "original": {
@@ -117,24 +95,46 @@
         "type": "github"
       }
     },
-    "herdr": {
+    "herdnix": {
       "inputs": {
+        "herdr": "herdr",
         "nixpkgs": [
           "nixpkgs-unstable"
         ],
-        "rust-overlay": "rust-overlay_2"
+        "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1787383913,
-        "narHash": "sha256-k938x3OHk6CFO+BJVXwMZ7V/+PmHOkT+sywlbEjLjx0=",
+        "lastModified": 1787425099,
+        "narHash": "sha256-+CvjNYCL8royiQVd6JLZAt4d6xaQTHQDIze7Ox4B6rc=",
         "owner": "Ra77a3l3-jar",
-        "repo": "herdr",
-        "rev": "078a3eb5007d2db2146a88053920bda73b20e0c6",
+        "repo": "herdnix",
+        "rev": "a66e49a4484dc1685c84c939a62ccb687264e801",
         "type": "github"
       },
       "original": {
         "owner": "Ra77a3l3-jar",
-        "ref": "unstable",
+        "repo": "herdnix",
+        "type": "github"
+      }
+    },
+    "herdr": {
+      "inputs": {
+        "nixpkgs": [
+          "herdnix",
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay_2"
+      },
+      "locked": {
+        "lastModified": 1787352723,
+        "narHash": "sha256-YI+RraMCMGwVfD5AdRxLvlMz38gfiw/b2RG9XzH1y4o=",
+        "owner": "herdrdev",
+        "repo": "herdr",
+        "rev": "1c76079f8b9494ec1c971c80fda34c116ecb89dd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "herdrdev",
         "repo": "herdr",
         "type": "github"
       }
@@ -225,17 +225,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1787320901,
-        "narHash": "sha256-5BN91fnWMAWwGfrxFVaq+YvbNy27UsJo/pj1SPgby5U=",
-        "ref": "refs/heads/main",
-        "rev": "c1cd1c0d2703c9b0b652a3b12d285ae73894969b",
-        "revCount": 35,
-        "type": "git",
-        "url": "ssh://git@codeberg.org/Ra77a3l3-jar/nhx.git"
+        "lastModified": 1787444991,
+        "narHash": "sha256-3lMX0TK7FJHiZXNgTrok16j/6A2mDqHZ18wTr9ByHEo=",
+        "owner": "Ra77a3l3-jar",
+        "repo": "nhx",
+        "rev": "787f1fb717d6ebaaa07b5a0ffb9ffd3973901555",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "ssh://git@codeberg.org/Ra77a3l3-jar/nhx.git"
+        "owner": "Ra77a3l3-jar",
+        "repo": "nhx",
+        "type": "github"
       }
     },
     "nix-ros-overlay": {
@@ -334,9 +334,8 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "helix-plugins-nix": "helix-plugins-nix",
         "helix-steel": "helix-steel",
-        "herdr": "herdr",
+        "herdnix": "herdnix",
         "home-manager": "home-manager",
         "neovim-nvf": "neovim-nvf",
         "nhx": "nhx",
@@ -388,6 +387,7 @@
     "rust-overlay_2": {
       "inputs": {
         "nixpkgs": [
+          "herdnix",
           "herdr",
           "nixpkgs"
         ]
