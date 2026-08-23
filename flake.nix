@@ -41,24 +41,18 @@
     };
     nixpkgs-ros.url = "github:NixOS/nixpkgs/d233902339c02a9c334e7e593de68855ad26c4cb";
 
-    # personal repo with plugin derivations and custom fork of plugins
-    helix-plugins-nix = {
-      url = "git+ssh://git@codeberg.org/Ra77a3l3-jar/helix-plugins-nix?ref=personal-branch";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     helix-steel = {
       url = "github:Ra77a3l3-jar/helix/steel-personal-branch";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     nhx = {
-      url = "git+ssh://git@codeberg.org/Ra77a3l3-jar/nhx.git";
+      url = "github:Ra77a3l3-jar/nhx";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    herdr = {
-      url = "github:Ra77a3l3-jar/herdr/unstable";
+    herdnix = {
+      url = "github:Ra77a3l3-jar/herdnix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
@@ -76,7 +70,7 @@
       nix-ros-overlay,
       helix-steel,
       nhx,
-      herdr,
+      herdnix,
       ...
     }@inputs:
     let
@@ -118,7 +112,7 @@
               neovim-nvf
               helix-steel
               nhx
-              herdr
+              herdnix
               ;
             system = "x86_64-linux";
           };
@@ -141,7 +135,7 @@
               neovim-nvf
               helix-steel
               nhx
-              herdr
+              herdnix
               ;
             system = "x86_64-linux";
           };
