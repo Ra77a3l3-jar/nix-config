@@ -24,11 +24,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     neovim-nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -65,7 +60,6 @@
       home-manager,
       flake-utils,
       zen-browser,
-      nixvim,
       neovim-nvf,
       nix-ros-overlay,
       helix-steel,
@@ -108,7 +102,6 @@
               inputs
               pkgs-unstable
               zen-browser
-              nixvim
               neovim-nvf
               helix-steel
               nhx
@@ -131,7 +124,6 @@
               inputs
               pkgs-unstable
               zen-browser
-              nixvim
               neovim-nvf
               helix-steel
               nhx
