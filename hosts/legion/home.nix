@@ -11,13 +11,13 @@
 
 {
   imports = [
-    ../../modules/core/default.nix
-    ../../modules/desktop/default.nix
-    ../../modules/terminal/default.nix
-    ../../modules/shell/default.nix
-    ../../modules/editor/default.nix
-    ../../modules/tools/default.nix
-    ../../modules/dev/default.nix
+    ../../home/core/default.nix
+    ../../home/desktop/default.nix
+    ../../home/terminal/default.nix
+    ../../home/shell/default.nix
+    ../../home/editor/default.nix
+    ../../home/tools/default.nix
+    ../../home/dev/default.nix
   ];
 
   home.username = "raffaele";
