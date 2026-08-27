@@ -33,10 +33,10 @@
     lgit = "lazygit";
     ldoc = "lazydocker";
 
-    la = "eza -la --icons";
-    ltree = "eza --tree --level=3 --long --git --icons";
-    ls = "eza --icons";
-    lg = "eza -l --git --icons";
-    lt = "eza --git --tree -l --icons";
+    la = "eza -la";
+    ltree = "eza --tree --level=3 --long --git";
+    ls = "eza";
+    lg = "eza -l --git";
+    lt = "eza --git --tree -l";
   };
 }
