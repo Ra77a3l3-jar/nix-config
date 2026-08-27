@@ -136,25 +136,6 @@
             ./hosts/legion/home.nix
           ];
         };
-
-        # Legacy alias (keep for backward compatibility)
-        "raffaele" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-
-          extraSpecialArgs = {
-            inherit
-              inputs
-              pkgs-unstable
-              zen-browser
-              nixvim
-              helix-steel
-              ;
-          };
-
-          modules = [
-            ./home.nix
-          ];
-        };
       };
     };
 }
