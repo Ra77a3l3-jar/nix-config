@@ -3,10 +3,10 @@
 {
   config.vim.theme = {
     enable = true;
-    # name = "catppuccin";
-    # style = "mocha";
-    name = "tokyonight";
-    style = "night";
+    name = "catppuccin";
+    style = "mocha";
+    # name = "tokyonight";
+    # style = "night";
     transparent = true;
   };
 

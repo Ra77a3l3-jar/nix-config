@@ -4,7 +4,7 @@
   config.vim = {
     statusline.lualine = {
       enable = true;
-      theme = "tokyonight";
+      theme = "catppuccin";
     };
 
     tabline.nvimBufferline = {
