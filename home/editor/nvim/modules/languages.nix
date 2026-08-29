@@ -15,5 +15,6 @@
     java.enable = true;
     bash.enable = true;
     haskell.enable = true;
+    assembly.enable = true;
   };
 }

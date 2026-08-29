@@ -130,6 +130,7 @@ in
       pkgs.gdb
       pkgs.nasm
       pkgs.lldb
+      pkgs.asm-lsp
     ];
   };
 
