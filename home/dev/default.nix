@@ -7,6 +7,7 @@
     ./containers/default.nix
     ./common.nix
     ./herdr.nix
+    ./packet-tracer.nix
   ];
 
 }
