@@ -38,6 +38,19 @@ in
   };
 
   config = {
+    # Use the same UI font outside GNOME as well. Explicit application fonts
+    # (for example the JetBrainsMono terminal settings) still take precedence.
+    gtk.font = {
+      name = cfg.uiFont;
+      size = cfg.fontSize;
+    };
+
+    fonts.fontconfig.defaultFonts = {
+      monospace = [ cfg.uiFont ];
+      sansSerif = [ cfg.uiFont ];
+      serif = [ cfg.uiFont ];
+    };
+
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         font-name = "${cfg.uiFont} ${toString cfg.fontSize}";
