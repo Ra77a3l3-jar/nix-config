@@ -1,8 +1,8 @@
-{ ... }:
+{ hostName, ... }:
 
 {
   xdg.configFile."hypr" = {
-    source = ./config;
+    source = ./configs/${hostName};
     recursive = true;
   };
 

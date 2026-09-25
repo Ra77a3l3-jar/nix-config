@@ -122,6 +122,7 @@
                 backupFileExtension = "backup";
                 extraSpecialArgs = extraSpecialArgs // {
                   isNixOS = true;
+                  hostName = "bobasek";
                 };
                 users.raffaele = import ./hosts/bobasek/home.nix;
               };
@@ -135,6 +136,7 @@
           inherit pkgs;
           extraSpecialArgs = extraSpecialArgs // {
             isNixOS = false;
+            hostName = "legion";
           };
           modules = [
             ./hosts/legion/home.nix
