@@ -6,5 +6,6 @@
   home.packages = with pkgs; [
     quickshell
     qt6.qtdeclarative
+    material-symbols
   ];
 }
