@@ -7,5 +7,7 @@
     quickshell
     qt6.qtdeclarative
     material-symbols
+    hyprsunset
+    wl-clipboard
   ];
 }
