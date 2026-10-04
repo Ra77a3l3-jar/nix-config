@@ -1,8 +1,0 @@
-hl.env("XCURSOR_SIZE", "24")
-hl.env("XCURSOR_THEME", "Yaru")
-hl.env("HYPRCURSOR_SIZE", "24")
-hl.env("NIXOS_OZONE_WL", "1")
-hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
-hl.env("QT_QPA_PLATFORM", "wayland;xcb")
-hl.env("SDL_VIDEODRIVER", "wayland")
-hl.env("CLUTTER_BACKEND", "wayland")

@@ -1,12 +1,12 @@
--- Ignore application maximize requests; explicit SUPER+M and SUPER+F actions
--- remain available to the user.
+-- ignore application maximize requests; explicit SUPER+M and SUPER+F actions
+-- remain available to the user
 hl.window_rule({
   name = "suppress-maximize-requests",
   match = { class = ".*" },
   suppress_event = "maximize",
 })
 
--- Prevent focus glitches from empty XWayland helper windows
+-- prevent focus glitches from empty XWayland helper windows
 hl.window_rule({
   name = "fix-xwayland-helper-focus",
   match = {

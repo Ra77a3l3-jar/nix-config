@@ -1,12 +1,13 @@
 hl.config({
   general = {
-    gaps_in = 6,
-    gaps_out = 12,
-    border_size = 2,
+    gaps_in = 5,
+    gaps_out = 10,
+
+    border_size = 0,
+
     resize_on_border = true,
-    extend_border_grab_area = 12,
-    allow_tearing = false,
-    layout = "dwindle",
+
+    layout = "scrolling",
 
     col = {
       active_border = {
@@ -28,6 +29,7 @@ hl.config({
     follow_focus = true,
     follow_min_visible = 0.4,
     explicit_column_widths = "0.333, 0.5, 0.667, 1.0",
+    wrap_focus = true,
   },
 })
 

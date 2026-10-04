@@ -1,0 +1,6 @@
+hl.on("hyprland.start", function()
+    hl.exec_cmd("qs")
+    hl.exec_cmd("hyprlauncher --daemon")
+    hl.exec_cmd("playerctld daemon")
+    hl.exec_cmd("awww-daemon")
+end)
