@@ -9,5 +9,7 @@
     material-symbols
     hyprsunset
     wl-clipboard
+    awww
+    matugen
   ];
 }
