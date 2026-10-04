@@ -6,7 +6,6 @@
     ./languages/default.nix
     ./containers/default.nix
     ./common.nix
-    ./herdr.nix
     ./packet-tracer.nix
   ];
 
