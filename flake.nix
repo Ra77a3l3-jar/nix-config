@@ -38,7 +38,6 @@
 
     helix-steel = {
       url = "github:Ra77a3l3-jar/helix/steel-personal-branch";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     nhx = {
