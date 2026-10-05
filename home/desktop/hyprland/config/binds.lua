@@ -34,6 +34,11 @@ hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 
+-- plugins
+hl.bind("SUPER + X", function()
+    hl.plugin.scrolloverview.overview("toggle all")
+end)
+
 -- quickshell appearance popups
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(wallpaperPicker))
 hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd(themePicker))

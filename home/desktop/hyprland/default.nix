@@ -2,12 +2,12 @@
 
 {
   xdg.configFile."hypr" = {
-    source = ./configs;
+    source = ./config;
     recursive = true;
   };
 
   xdg.configFile."hypr/scripts/toggle-layout.sh" = {
-    source = ./configs/scripts/toggle-layout.sh;
+    source = ./config/scripts/toggle-layout.sh;
     executable = true;
   };
 }
