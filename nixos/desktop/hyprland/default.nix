@@ -1,19 +1,14 @@
-{ pkgs, ... }:
+{ inputs, pkgs-unstable, ... }:
 
 {
-  programs.hyprland.enable = true;
-  programs.hyprland.withUWSM = false;
-
-  services.greetd = {
+  programs.hyprland = {
     enable = true;
-    settings.default_session = {
-      command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd ${pkgs.hyprland}/bin/start-hyprland";
-      user = "greeter";
-    };
+    withUWSM = false;
+    package = pkgs-unstable.hyprland;
+    portalPackage = pkgs-unstable.xdg-desktop-portal-hyprland;
   };
 
-  environment.systemPackages = with pkgs; [
-    hyprlauncher
+  environment.systemPackages = [
+    inputs.hyprland-guiutils.packages.${pkgs-unstable.stdenv.hostPlatform.system}.default
   ];
-
 }

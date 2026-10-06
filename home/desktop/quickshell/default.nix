@@ -7,6 +7,8 @@
     quickshell
     qt6.qtdeclarative
     material-symbols
+    imagemagick
+    wlr-randr
     hyprsunset
     wl-clipboard
     awww
