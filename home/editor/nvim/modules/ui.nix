@@ -4,7 +4,7 @@
   config.vim = {
     statusline.lualine = {
       enable = true;
-      theme = "catppuccin";
+      setupOpts.options.theme = "catppuccin-nvim";
     };
 
     tabline.nvimBufferline = {

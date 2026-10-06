@@ -2,6 +2,8 @@
 
 {
   config.vim = {
+    globals.mapleader = " ";
+
     options = {
       number = true;
       relativenumber = true;

@@ -8,6 +8,15 @@
       nodejs
     ];
 
+    clipboard = {
+      enable = true;
+      registers = "unnamedplus";
+      providers = {
+        wl-copy.enable = true;
+        xclip.enable = true;
+      };
+    };
+
     telescope = {
       enable = true;
 
@@ -79,6 +88,7 @@
 
     autocomplete.blink-cmp = {
       enable = true;
+      mappings.next = null;
 
       setupOpts = {
         completion = {
@@ -108,6 +118,17 @@
 
         keymap = {
           preset = "super-tab";
+        };
+
+        cmdline = {
+          completion.menu.auto_show = true;
+
+          keymap = {
+            preset = "cmdline";
+            "<Tab>" = [ "select_and_accept" "fallback" ];
+            "<Up>" = [ "select_prev" "fallback" ];
+            "<Down>" = [ "select_next" "fallback" ];
+          };
         };
       };
     };

@@ -20,6 +20,55 @@
     }
 
     {
+      key = "<leader>y";
+      mode = "n";
+      action = "\"+yy";
+      desc = "Yank line to clipboard";
+    }
+
+    {
+      key = "<leader>y";
+      mode = "x";
+      action = "\"+ygv";
+      desc = "Yank selection to clipboard";
+    }
+
+    {
+      key = "x";
+      mode = "n";
+      action = "V";
+      desc = "Select entire line";
+    }
+
+    {
+      key = "i";
+      mode = "n";
+      action = "a";
+      desc = "Insert after cursor";
+    }
+
+    {
+      key = "a";
+      mode = "n";
+      action = "i";
+      desc = "Insert before cursor";
+    }
+
+    {
+      key = "gh";
+      mode = [ "n" "x" "o" ];
+      action = "0";
+      desc = "Go to beginning of line";
+    }
+
+    {
+      key = "gl";
+      mode = [ "n" "x" "o" ];
+      action = "$";
+      desc = "Go to end of line";
+    }
+
+    {
       key = "<leader>e";
       mode = "n";
       action = "<cmd>lua MiniFiles.open()<CR>";
