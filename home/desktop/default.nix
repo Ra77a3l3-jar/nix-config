@@ -1,12 +1,9 @@
-{ lib, isNixOS, ... }:
+{ ... }:
 
 {
-  imports =
-    [
-      ./gnome/theme.nix
-      ./quickshell/default.nix
-    ]
-    ++ lib.optionals (!isNixOS) [
-      ./gnome/default.nix
-    ];
+  imports = [
+    ./gnome/default.nix
+    ./gnome/theme.nix
+    ./quickshell/default.nix
+  ];
 }
