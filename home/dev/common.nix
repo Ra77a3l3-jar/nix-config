@@ -28,6 +28,7 @@
     ])
     ++ [
       pkgs-unstable.kicad
+      pkgs-unstable.devenv
     ];
 
 }
