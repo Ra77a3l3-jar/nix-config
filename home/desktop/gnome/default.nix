@@ -4,6 +4,7 @@
   imports = [
     ./fonts.nix
     ./gnome.nix
+    ./extensions.nix
   ];
 
   desktop.gnome = {
