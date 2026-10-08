@@ -1,0 +1,14 @@
+inputs:
+  nixpkgs:
+    url: github:NixOS/nixpkgs/nixos-26.05
+  nixpkgs-unstable:
+    url: github:NixOS/nixpkgs/nixos-unstable
+  nixpkgs-ros:
+    url: github:NixOS/nixpkgs/d233902339c02a9c334e7e593de68855ad26c4cb
+  nix-ros-overlay:
+    url: github:lopsided98/nix-ros-overlay/13634b579b61299abfc5389d7d47dd7d1701a3a2
+    inputs:
+      nixpkgs:
+        follows: nixpkgs-ros
+nixpkgs:
+  allow_unfree: true

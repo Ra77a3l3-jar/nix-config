@@ -91,16 +91,6 @@
       };
     in
     {
-      devShells =
-        let
-          shells = import ./devshells/flake.nix {
-            inherit inputs system;
-          };
-        in
-        {
-          ${system} = shells;
-        };
-
       nixosConfigurations = {
         bobasek = nixpkgs.lib.nixosSystem {
           inherit system;

@@ -7,14 +7,14 @@
     hmg = "nix-collect-garbage -d";
     hml = "home-manager generations";
 
-    nd-hsk = "nix develop ~/.config/nix-config#haskell -c fish";
-    nd-go = "nix develop ~/.config/nix-config#go -c fish";
-    nd-java = "nix develop ~/.config/nix-config#java -c fish";
-    nd-zig = "nix develop ~/.config/nix-config#zig -c fish";
-    nd-asm = "nix develop ~/.config/nix-config#asm -c fish";
-    nd-nix = "nix develop ~/.config/nix-config#nix -c fish";
-    nd-sh = "nix develop ~/.config/nix-config#bash -c fish";
-    nd-ros = "nix develop ~/.config/nix-config#ros --accept-flake-config -c fish";
+    dev-haskell = "devenv --from path:$HOME/.config/nix-config/devshells --profile haskell shell";
+    dev-ros = "devenv --from path:$HOME/.config/nix-config/devshells --profile ros shell";
+    dev-go = "devenv --from path:$HOME/.config/nix-config/devshells --profile go shell";
+    dev-java = "devenv --from path:$HOME/.config/nix-config/devshells --profile java shell";
+    dev-zig = "devenv --from path:$HOME/.config/nix-config/devshells --profile zig shell";
+    dev-asm = "devenv --from path:$HOME/.config/nix-config/devshells --profile asm shell";
+    dev-nix = "devenv --from path:$HOME/.config/nix-config/devshells --profile nix shell";
+    dev-bash = "devenv --from path:$HOME/.config/nix-config/devshells --profile bash shell";
 
     ex = "exit";
     zl = "zellij";
