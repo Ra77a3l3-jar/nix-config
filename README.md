@@ -1,215 +1,49 @@
-# Nix Configuration
+# Nix config
 
-Personal Nix + Home Manager configuration for managing dotfiles and packages across multiple machines.
+Nix configuration for my Fedora and Nixos machines.
 
-## Supported Hosts
+![Quickshell desktop with the top bar](assets/screenshots/home-page.png)
 
-- `bobasek` - School/travel laptop configuration
-- `legion` - Personal desktop configuration
+## Setup at a glance
 
-## Installation on Fedora
+| Machine | System | Configuration |
+| --- | --- | --- |
+| **Legion** | Fedora + Nix | Home Manager: `legion` |
+| **Bobasek** | NixOS | NixOS system + Home Manager: `bobasek` |
 
-### Quick Install
+Clone this repo to `~/.config/nix-config`. On **Legion**, run `./scripts/install.sh` to prepare Fedora.
+If Nix was just installed, log out and back in before applying Home Manager:
 
-It will install prerequisites, set up Nix, configure Git/SSH, clone this repository, and bootstrap Home Manager for the current machine:
-
-```bash
-./install.sh
-```
-
-If you need NVIDIA drivers, run after installation:
-
-```bash
-./setup_nvidia.sh
-```
-
-You can also run the Git/SSH setup on its own:
-
-```bash
-./setup_git.sh
-```
-
-### Manual Steps
-
-If you prefer to run the steps manually instead of using the scripts above:
-
-#### 1. Install Prerequisites
-
-First, install Fish shell and Kitty terminal using DNF:
-
-```bash
-sudo dnf install fish kitty
-```
-
-Set Fish as your default shell:
-
-```bash
-chsh -s $(which fish)
-```
-
-Log out and log back in for the shell change to take effect.
-
-#### 2. Install Nix
-
-Install Nix package manager:
-
-```bash
-sudo dnf install nix
-```
-
-Enable and start the Nix daemon:
-
-```bash
-sudo systemctl enable --now nix-daemon.service
-```
-
-Add yourself to the nix-users group:
-
-```bash
-sudo usermod -aG nix-users $USER
-```
-
-Log out and log back in for the group change to take effect.
-
-Configure Nix to enable flakes and the nix command. Create or edit `~/.config/nix/nix.conf`:
-
-```bash
-mkdir -p ~/.config/nix
-echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
-```
-
-#### 3. Setup Git and SSH for GitHub
-
-Configure Git with your information:
-
-```bash
-git config --global user.name "Your Name"
-git config --global user.email "your.email@example.com"
-```
-
-Generate an SSH key for GitHub:
-
-```bash
-ssh-keygen -t ed25519 -C "your.email@example.com"
-```
-
-Press Enter to accept the default file location, then add a passphrase if desired.
-
-Start the SSH agent and add your key:
-
-```bash
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
-```
-
-Display your public key:
-
-```bash
-cat ~/.ssh/id_ed25519.pub
-```
-
-Copy the output and add it to your GitHub account:
-- Go to GitHub Settings > SSH and GPG keys
-- Click "New SSH key"
-- Paste your public key and save
-
-Test your connection:
-
-```bash
-ssh -T git@github.com
-```
-
-#### 4. Clone This Repository
-
-Clone the repository using SSH:
-
-```bash
-mkdir -p ~/.config
-git clone git@github.com:Ra77a3l3-jar/nix-config.git ~/.config/nix-config
-cd ~/.config/nix-config
-```
-
-#### 5. Install Home Manager
-
-Bootstrap Home Manager with the appropriate configuration for your machine:
-
-**For school laptop:**
-```bash
-nix run home-manager/release-26.05 -- switch --flake ~/.config/nix-config#raffaele@bobasek
-```
-
-**For personal PC:**
-```bash
+```sh
 nix run home-manager/release-26.05 -- switch --flake ~/.config/nix-config#raffaele@legion
+./scripts/setup_gpu.sh
 ```
 
-### 6. GPU setup
+The GPU script connects Nix GUI apps to Fedora's drivers after the first Home Manager switch.
 
-Nix GUI apps (Ghostty, Kitty, Wezterm, Zed, ...) use the GPU through
-`/run/opengl-driver`, which Home Manager sets up via
-`targets.genericLinux.gpu`. After the first `hms`, run once:
+On **Bobasek**, apply the system and home configuration together:
 
-```bash
-./setup_gpu.sh
+```sh
+sudo nixos-rebuild switch --flake ~/.config/nix-config#bobasek
 ```
 
-This requires `sudo` and creates the driver symlinks (persisted with
-systemd-tmpfiles, so it survives reboots). Re-run it after a driver update
-when Home Manager warns that the driver path changed.
+## The look
 
-### 7. Apply Configuration
+| Appearance settings | Display settings |
+| :---: | :---: |
+| <img src="assets/screenshots/appearance-settings.png" alt="Appearance settings with wallpaper and theme choices" width="480"> | <img src="assets/screenshots/display-settings.png" alt="Display settings with monitor layout" width="480"> |
+| **Power Module** | **Theme Picker** |
+| <img src="assets/screenshots/power-popup.png" alt="Power controls popup" width="480"> | <img src="assets/screenshots/theme-changer-popup.png" alt="Theme chooser popup" width="480"> |
 
-After the initial setup, you can use the built-in aliases to manage your configuration:
+<p align="center">
+  <strong>Wallpaper Picker</strong><br>
+  <img src="assets/screenshots/wallpaper-changer-popup.png" alt="Wallpaper chooser popup" width="480">
+</p>
 
-```bash
-hms  # Apply configuration changes (home-manager switch)
-hmb  # Build configuration without activating (home-manager build)
-```
+## Where things live
 
-These aliases automatically use the correct configuration for your machine.
-
-## Making Changes
-
-1. Edit configuration files in `~/.config/nix-config/`
-2. Test your changes: `hmb`
-3. Apply your changes: `hms`
-4. Commit and push to keep your config in sync
-
-## Troubleshooting
-
-### Nix daemon not starting
-
-If you encounter issues with the Nix daemon:
-
-```bash
-sudo systemctl status nix-daemon.service
-sudo journalctl -u nix-daemon.service
-```
-
-### Home Manager conflicts
-
-If you get conflicts about existing files:
-
-```bash
-# Backup and remove conflicting dotfiles
-mv ~/.bashrc ~/.bashrc.backup
-# Then retry: hms
-```
-
-### Flakes not enabled
-
-If you get an error about experimental features:
-
-```bash
-echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
-```
-
-## Updating
-
-Update flake inputs (nixpkgs, home-manager, etc.):
-
-```bash
-cd ~/.config/nix-config
-nix flake update
-hms
-```
+- `hosts/` — settings specific to Legion and Bobasek
+- `nixos/` — Bobasek's system services, hardware, and desktop
+- `home/` — shared Home Manager modules
+- `devshells/` — standalone devenv profiles
+- `scripts/` — setup and maintenance helpers; see the [script guide](scripts/README.md)
