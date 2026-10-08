@@ -12,10 +12,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    hyprland-guiutils = {
-      url = "github:hyprwm/hyprland-guiutils";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+    # Keep Hyprland and GUI utilities on one compatible HyprWM release
+    hyprnix.url = "github:hyprwm/hyprnix";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";

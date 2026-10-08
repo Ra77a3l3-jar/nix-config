@@ -1,8 +1,12 @@
-{ inputs, pkgs-unstable, ... }:
+{ inputs, pkgs, pkgs-unstable, ... }:
 
 let
+  # Use HyprWM's pinned package set for Hyprland, portal, and GUI utilities
+  hyprPackages = inputs.hyprnix.packages.${pkgs.stdenv.hostPlatform.system};
+
   # Build the plugin against Bobasek's installed Hyprland to match its ABI
   scrollOverview = pkgs-unstable.hyprlandPlugins.mkHyprlandPlugin {
+    hyprland = hyprPackages.default;
     pluginName = "scrolloverview";
     version = "10eeefa0519e";
     src = pkgs-unstable.fetchFromGitHub {
@@ -40,8 +44,8 @@ in
   programs.hyprland = {
     enable = true;
     withUWSM = false;
-    package = pkgs-unstable.hyprland;
-    portalPackage = pkgs-unstable.xdg-desktop-portal-hyprland;
+    package = hyprPackages.default;
+    portalPackage = hyprPackages.xdg-desktop-portal-hyprland;
   };
 
   # Give the manually managed Lua config a stable path to the Nix-built plugin
@@ -49,6 +53,6 @@ in
     "${scrollOverview}/lib/libscrolloverview.so";
 
   environment.systemPackages = [
-    inputs.hyprland-guiutils.packages.${pkgs-unstable.stdenv.hostPlatform.system}.default
+    hyprPackages.hyprland-guiutils
   ];
 }
