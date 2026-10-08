@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Hyprland (Nix)
+Comment=Hyprland from the pinned Nix flake
+Exec=/usr/local/bin/hyprland-nix-session
+TryExec=/usr/local/bin/hyprland-nix-session
+Type=Application
+DesktopNames=Hyprland

@@ -18,10 +18,8 @@
   };
 
   home.activation = {
+    # The Nix profile is read-only; update only writable user desktop entries
     updateDesktopDatabase = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      if [ -d "${config.home.homeDirectory}/.nix-profile/share/applications" ]; then
-        $DRY_RUN_CMD ${pkgs.desktop-file-utils}/bin/update-desktop-database ${config.home.homeDirectory}/.nix-profile/share/applications
-      fi
       if [ -d "${config.home.homeDirectory}/.local/share/applications" ]; then
         $DRY_RUN_CMD ${pkgs.desktop-file-utils}/bin/update-desktop-database ${config.home.homeDirectory}/.local/share/applications
       fi

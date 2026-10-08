@@ -6,7 +6,7 @@ Run these from the repository root as your regular user. Scripts that need syste
 | --- | --- |
 | [`install.sh`](install.sh) | Prepares Fedora for Nix and Git, then prints a Home Manager bootstrap command. |
 | [`clone-dotfiles.sh`](clone-dotfiles.sh) | Installs [Hyprland and Quickshell dotfiles](https://github.com/Ra77a3l3-jar/.dotfiles) into `~/.config` without replacing unrelated files. |
-| [`install-hyprland-fedora.sh`](install-hyprland-fedora.sh) | Installs Hyprland, GUI utilities, and its portal through Fedora's package manager. |
+| [`install-hyprland-fedora.sh`](install-hyprland-fedora.sh) | Registers the Nix Hyprland GDM session and removes only the old Fedora Hyprland RPMs. |
 | [`setup_git.sh`](setup_git.sh) | Sets Git identity, creates an SSH key if needed, and guides GitHub SSH setup. |
 | [`set-fish-shell.sh`](set-fish-shell.sh) | Sets the Nix installed Fish binary as the login shell. |
 | [`setup_nvidia.sh`](setup_nvidia.sh) | Installs the Fedora NVIDIA driver through RPM Fusion; optionally adds CUDA. |

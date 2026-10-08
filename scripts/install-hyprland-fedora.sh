@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Install the Fedora Hyprland session and its companion utilities
+# Register the Home Manager Hyprland package as a Fedora GDM session
 if [[ ! -r /etc/os-release ]]; then
     printf 'Cannot identify this operating system\n' >&2
     exit 1
@@ -15,15 +15,29 @@ if [[ "${ID:-}" != "fedora" ]]; then
 fi
 
 if [[ "$(id -u)" -eq 0 ]]; then
-    printf 'Run this script as your regular user; it will call sudo for DNF\n' >&2
+    printf 'Run this script as your regular user; it will call sudo for the GDM files\n' >&2
     exit 1
 fi
 
-if ! command -v dnf >/dev/null 2>&1; then
-    printf 'DNF is required on Fedora\n' >&2
+if [[ ! -x "$HOME/.nix-profile/bin/start-hyprland" ]]; then
+    printf 'Apply the Legion Home Manager configuration first, then rerun this script\n' >&2
     exit 1
 fi
 
-sudo dnf install hyprland hyprland-guiutils xdg-desktop-portal-hyprland
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+sudo install -Dm755 "$script_dir/hyprland-nix-session" /usr/local/bin/hyprland-nix-session
+sudo install -Dm644 "$script_dir/hyprland-nix.desktop" /usr/share/wayland-sessions/hyprland-nix.desktop
 
-printf 'Hyprland is installed. Select the Hyprland session at the login screen\n'
+# Retire only the Fedora session packages; keep the COPR and unrelated apps
+legacy_packages=()
+for package in hyprland hyprland-guiutils xdg-desktop-portal-hyprland hyprland-uwsm hyprlauncher; do
+    if rpm -q "$package" >/dev/null 2>&1; then
+        legacy_packages+=("$package")
+    fi
+done
+
+if (( ${#legacy_packages[@]} > 0 )); then
+    sudo dnf remove --no-autoremove "${legacy_packages[@]}"
+fi
+
+printf 'Hyprland (Nix) is available at the GDM login screen\n'

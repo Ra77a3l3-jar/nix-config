@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# GDM does not load the user's shell profile, so add the Nix profile first
+if [[ -r /etc/profile.d/nix.sh ]]; then
+    # shellcheck source=/dev/null
+    source /etc/profile.d/nix.sh
+fi
+
+# Home Manager supplies the host GPU libraries through /run/opengl-driver
+exec "$HOME/.nix-profile/bin/start-hyprland" --no-nixgl

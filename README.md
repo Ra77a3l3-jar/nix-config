@@ -21,6 +21,8 @@ nix run home-manager/release-26.05 -- switch --flake ~/.config/nix-config#raffae
 
 The GPU script connects Nix GUI apps to Fedora's drivers after the first Home Manager switch.
 
+On Legion, run `./scripts/install-hyprland-fedora.sh` after Home Manager finishes to add **Hyprland (Nix)** to GDM.
+
 On **Bobasek**, apply the system and home configuration together:
 
 ```sh
