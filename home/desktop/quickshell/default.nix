@@ -11,6 +11,8 @@
     wlr-randr
     hyprsunset
     wl-clipboard
+    grim
+    slurp
     awww
     matugen
   ];
