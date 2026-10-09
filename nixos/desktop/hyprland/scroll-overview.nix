@@ -18,6 +18,13 @@ let
     enableParallelBuilding = true;
     dontUseCmakeConfigure = true;
 
+    meta = with pkgs-unstable.lib; {
+      description = "Scroll overview plugin for Hyprland, just like niri";
+      homepage = "https://github.com/yayuuu/hyprland-scroll-overview";
+      license = licenses.bsd3;
+      platforms = platforms.linux;
+    };
+
     buildPhase = ''
       runHook preBuild
       SCROLLOVERVIEW_BUILD_VERSION=${version} make all
