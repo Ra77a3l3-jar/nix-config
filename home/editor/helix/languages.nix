@@ -2,17 +2,6 @@
 
 {
   programs.nhx.languages = {
-    language-server = {
-      arduino-language-server = {
-        command = "arduino-language-server";
-        args = [
-          "-cli"
-          "arduino-cli"
-          "-clangd"
-          "clangd"
-        ];
-      };
-    };
 
     language = [
       {
@@ -38,21 +27,6 @@
           tab-width = 4;
           unit = "    ";
         };
-      }
-
-      {
-        name = "arduino";
-        scope = "source.cpp";
-        file-types = [
-          "ino"
-          "pde"
-        ];
-        language-servers = [ "clangd" ];
-        indent = {
-          tab-width = 4;
-          unit = "    ";
-        };
-        grammar = "cpp";
       }
 
       {
