@@ -9,11 +9,15 @@
     themeFile = "VibrantInk";
 
     font = {
-      name = "Jetbrains Mono Nerd Font";
+      name = ''family="JetBrainsMono Nerd Font" style=Bold'';
       size = 13;
     };
 
     settings = {
+      bold_font = ''family="JetBrainsMono Nerd Font" style=ExtraBold'';
+      italic_font = ''family="JetBrainsMono Nerd Font" style="Bold Italic"'';
+      bold_italic_font = ''family="JetBrainsMono Nerd Font" style="ExtraBold Italic"'';
+
       # Cursor
       cursor_shape = "beam";
       cursor_blink_interval = "0";

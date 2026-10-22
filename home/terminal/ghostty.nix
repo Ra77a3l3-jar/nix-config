@@ -16,8 +16,11 @@ in
       # theme = "Sea Shells";
       # theme = "Black Metal (Bathory)";
 
-      font-family = "Jetbrains Mono Nerd Font";
-      font-synthetic-style = "bold";
+      font-family = "JetBrainsMono Nerd Font";
+      font-style = "Bold";
+      font-style-bold = "ExtraBold";
+      font-style-italic = "Bold Italic";
+      font-style-bold-italic = "ExtraBold Italic";
       font-size = 13;
 
       cursor-style = "bar";
@@ -30,7 +33,8 @@ in
       window-save-state = "always";
       window-decoration = false;
 
-      fullscreen = "true";
+      maximize = true;
+      fullscreen = false;
 
       background-opacity = 0.85;
       background-blur-radius = 25;
