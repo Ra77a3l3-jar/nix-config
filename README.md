@@ -47,5 +47,4 @@ sudo nixos-rebuild switch --flake ~/.config/nix-config#bobasek
 - `hosts/` — settings specific to Legion and Bobasek
 - `nixos/` — Bobasek's system services, hardware, and desktop
 - `home/` — shared Home Manager modules
-- `devshells/` — standalone devenv profiles
 - `scripts/` — setup and maintenance helpers; see the [script guide](scripts/README.md)

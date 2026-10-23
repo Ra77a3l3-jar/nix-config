@@ -7,15 +7,6 @@
     hmg = "nix-collect-garbage -d";
     hml = "home-manager generations";
 
-    dev-haskell = "devenv --from path:$HOME/.config/nix-config/devshells --profile haskell shell";
-    dev-ros = "devenv --from path:$HOME/.config/nix-config/devshells --profile ros shell";
-    dev-go = "devenv --from path:$HOME/.config/nix-config/devshells --profile go shell";
-    dev-java = "devenv --from path:$HOME/.config/nix-config/devshells --profile java shell";
-    dev-zig = "devenv --from path:$HOME/.config/nix-config/devshells --profile zig shell";
-    dev-asm = "devenv --from path:$HOME/.config/nix-config/devshells --profile asm shell";
-    dev-nix = "devenv --from path:$HOME/.config/nix-config/devshells --profile nix shell";
-    dev-bash = "devenv --from path:$HOME/.config/nix-config/devshells --profile bash shell";
-
     ex = "exit";
     zl = "zellij";
     cl = "clear";
