@@ -17,4 +17,14 @@
     enableNushellIntegration = true;
     enableBashIntegration = false;
   };
+
+  programs.carapace = {
+    enable = true;
+    package = pkgs-unstable.carapace;
+
+    enableNushellIntegration = true;
+    enableBashIntegration = false;
+    enableFishIntegration = false;
+    enableZshIntegration = false;
+  };
 }
