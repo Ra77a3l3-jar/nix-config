@@ -1,5 +1,14 @@
 { ... }:
 
+let
+  ezaAliases = {
+    la = "eza -la";
+    ltree = "eza --tree --level=3 --long --git";
+    ls = "eza";
+    lg = "eza -l --git";
+    lt = "eza --git --tree -l";
+  };
+in
 {
   home.shellAliases = {
     # Hms and hmb are defined in each host's home.nix for machine-specific configs
@@ -23,11 +32,9 @@
 
     lgit = "lazygit";
     ldoc = "lazydocker";
-
-    la = "eza -la";
-    ltree = "eza --tree --level=3 --long --git";
-    ls = "eza";
-    lg = "eza -l --git";
-    lt = "eza --git --tree -l";
   };
+
+  programs.bash.shellAliases = ezaAliases;
+  programs.fish.shellAliases = ezaAliases;
+  programs.zsh.shellAliases = ezaAliases;
 }

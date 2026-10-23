@@ -6,5 +6,6 @@
     package = pkgs-unstable.zoxide;
 
     enableFishIntegration = true;
+    enableNushellIntegration = true;
   };
 }

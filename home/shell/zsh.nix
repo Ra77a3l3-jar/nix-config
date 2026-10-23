@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ ... }:
 
 {
   programs.zsh = {
@@ -13,10 +13,6 @@
 
       if command -v zoxide >/dev/null 2>&1; then
         eval "$(zoxide init zsh)"
-      fi
-
-      if command -v oh-my-posh >/dev/null 2>&1; then
-        eval "$(oh-my-posh init zsh --config ${pkgs-unstable.oh-my-posh}/share/oh-my-posh/themes/pararussel.omp.json)"
       fi
     '';
   };
