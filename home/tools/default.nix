@@ -7,6 +7,7 @@
     ./zoxide.nix
     ./eza.nix
     ./fzf.nix
+    ./fastfetch.nix
     ./bat.nix
     ./yazi.nix
     ./gh-dash.nix
