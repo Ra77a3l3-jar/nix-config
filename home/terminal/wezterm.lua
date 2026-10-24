@@ -15,7 +15,7 @@ return {
 
   bold_brightens_ansi_colors = false,
 
-  color_scheme = "VibrantInk",
+  color_scheme = "Saffron Nightfall",
 
   default_cursor_style = "BlinkingBar",
   cursor_blink_rate = 500,
