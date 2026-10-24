@@ -1,20 +1,20 @@
-{ config, pkgs-unstable, ... }:
+{
+  config,
+  lib,
+  pkgs-unstable,
+  ...
+}:
 
-let
-  ghosttyPkg = pkgs-unstable.ghostty;
-in
 {
   programs.ghostty = {
     enable = true;
 
-    package = ghosttyPkg;
+    package = pkgs-unstable.ghostty;
+
+    themes."Saffron Nightfall" = lib.importJSON ./themes/ghostty/saffron-nightfall.json;
 
     settings = {
-      theme = "Vibrant Ink";
-      # theme = "TokyoNight";
-      # theme = "Spacedust";
-      # theme = "Sea Shells";
-      # theme = "Black Metal (Bathory)";
+      theme = "Saffron Nightfall";
 
       font-family = "JetBrainsMono Nerd Font";
       font-style = "Bold";
@@ -37,7 +37,7 @@ in
       fullscreen = false;
 
       background-opacity = 0.85;
-      background-blur-radius = 25;
+      background-blur-radius = 0;
 
       # disable D-Bus single instance so GNOME launches the binary directly
       gtk-single-instance = false;
@@ -49,7 +49,7 @@ in
   xdg.desktopEntries."com.mitchellh.ghostty" = {
     name = "Ghostty";
     comment = "A terminal emulator";
-    exec = "${ghosttyPkg}/bin/ghostty";
+    exec = "${config.programs.ghostty.package}/bin/ghostty";
     icon = "com.mitchellh.ghostty";
     categories = [
       "System"
