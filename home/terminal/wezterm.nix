@@ -4,5 +4,8 @@
   home.packages = [ pkgs-unstable.wezterm ];
 
   xdg.configFile."wezterm/wezterm.lua".source = ./wezterm.lua;
-  xdg.configFile."wezterm/colors".source = ./themes/wezterm;
+  xdg.configFile."wezterm/colors" = {
+    source = ./themes/wezterm;
+    recursive = true;
+  };
 }
