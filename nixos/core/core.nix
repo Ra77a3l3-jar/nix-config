@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs-unstable, ... }:
 {
   hardware.enableRedistributableFirmware = true;
   hardware.bluetooth.enable = true;
@@ -39,7 +39,7 @@
     isNormalUser = true;
     description = "raffaele";
     extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.fish;
+    shell = pkgs-unstable.nushell;
   };
 
   programs.fish.enable = true;
