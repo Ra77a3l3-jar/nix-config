@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./bash.nix
     ./fish.nix
     ./nushell.nix
     ./zsh.nix
@@ -10,21 +11,21 @@
   programs.oh-my-posh = {
     enable = true;
     package = pkgs-unstable.oh-my-posh;
-    useTheme = "robbyrussell";
+    configFile = ./themes/saffron-nightfall.omp.json;
 
+    enableBashIntegration = true;
     enableFishIntegration = true;
-    enableZshIntegration = true;
     enableNushellIntegration = true;
-    enableBashIntegration = false;
+    enableZshIntegration = true;
   };
 
   programs.carapace = {
     enable = true;
     package = pkgs-unstable.carapace;
 
+    enableBashIntegration = true;
+    enableFishIntegration = true;
     enableNushellIntegration = true;
-    enableBashIntegration = false;
-    enableFishIntegration = false;
-    enableZshIntegration = false;
+    enableZshIntegration = true;
   };
 }
