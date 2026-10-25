@@ -7,3 +7,11 @@ $env.PATH = (
     ]
     | uniq
 )
+
+def ls-with-icons [...patterns: glob] {
+    if ($patterns | is-empty) {
+        ls
+    } else {
+        ls ...$patterns
+    } | table --icons
+}

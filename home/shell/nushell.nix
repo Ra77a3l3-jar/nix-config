@@ -18,7 +18,7 @@
 
     shellAliases = {
       ll = "ls -la";
-      lg = "ls | table --icons";
+      lg = "ls-with-icons";
     };
   };
 }
