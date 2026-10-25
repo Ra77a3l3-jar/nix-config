@@ -17,9 +17,8 @@
     '';
 
     shellAliases = {
-      la = "ls -la";
-      ll = "ls -l";
-      lg = "ls -l";
+      ll = "ls -la";
+      lg = "ls | table --icons";
     };
   };
 }
