@@ -33,14 +33,15 @@
           "template": " {{ .UserName }} "
         },
         {
-          "type": "git",
+          "type": "path",
           "style": "powerline",
           "powerline_symbol": "",
           "foreground": "p:cream",
           "background": "p:surface",
-          "template": " {{ if .Detached }}{{ .ShortHash }}{{ else }}{{ .Ref }}{{ end }} ",
+          "template": " {{ .Path }} ",
           "options": {
-            "fetch_status": false
+            "style": "folder",
+            "home_icon": "~"
           }
         },
         {
@@ -70,16 +71,15 @@
       "overflow": "hide",
       "segments": [
         {
-          "type": "path",
+          "type": "git",
           "style": "powerline",
           "powerline_symbol": "",
           "invert_powerline": true,
           "foreground": "p:teal",
           "background": "p:path",
-          "template": " {{ .Path }} ",
+          "template": " {{ if .Detached }}{{ .ShortHash }}{{ else }}{{ .Ref }}{{ end }} ",
           "options": {
-            "style": "folder",
-            "home_icon": "~"
+            "fetch_status": false
           }
         },
         {
