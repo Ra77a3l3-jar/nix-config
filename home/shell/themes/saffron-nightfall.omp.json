@@ -20,6 +20,7 @@
           "type": "os",
           "style": "powerline",
           "powerline_symbol": "",
+          "leading_powerline_symbol": "🭨",
           "foreground": "p:cream",
           "background": "p:red",
           "template": "  "
@@ -73,8 +74,8 @@
         {
           "type": "git",
           "style": "powerline",
-          "powerline_symbol": "",
-          "invert_powerline": true,
+          "powerline_symbol": "🭪",
+          "leading_powerline_symbol": "",
           "foreground": "p:teal",
           "background": "p:path",
           "template": " {{ if .Detached }}{{ .ShortHash }}{{ else }}{{ .Ref }}{{ end }} ",
@@ -85,8 +86,8 @@
         {
           "type": "executiontime",
           "style": "powerline",
-          "powerline_symbol": "",
-          "invert_powerline": true,
+          "powerline_symbol": "🭪",
+          "leading_powerline_symbol": "",
           "foreground": "p:teal",
           "background": "p:surface",
           "template": " {{ .FormattedMs }} ",
