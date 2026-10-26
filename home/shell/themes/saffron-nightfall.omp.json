@@ -31,7 +31,7 @@
           "powerline_symbol": "",
           "foreground": "p:ink",
           "background": "p:orange",
-          "template": " {{ .UserName }} "
+          "template": " {{ .UserName }}{{ if .SSHSession }}@{{ .HostName }}{{ end }} "
         },
         {
           "type": "path",
@@ -57,6 +57,14 @@
               "nushell": "nu"
             }
           }
+        },
+        {
+          "type": "text",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "p:green",
+          "background": "p:path",
+          "template": "{{ if .Env.DEVENV_ROOT }}  devenv {{ end }}"
         },
         {
           "type": "text",
