@@ -17,6 +17,7 @@ let
     buildInputs = [ pkgs-unstable.lua5_4 ];
     enableParallelBuilding = true;
     dontUseCmakeConfigure = true;
+    meta.description = "Scrollable overview plugin for Hyprland";
 
     buildPhase = ''
       runHook preBuild
