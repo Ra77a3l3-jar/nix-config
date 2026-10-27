@@ -31,7 +31,8 @@
     };
 
     settings = {
-      theme = "catppuccin_mocha_transparent";
+      # theme = "catppuccin_mocha_transparent";
+      theme = "gruvbox_dark_hard_transparent";
 
       editor = {
         scrolloff = 999;
