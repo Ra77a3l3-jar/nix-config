@@ -70,6 +70,9 @@
           "type": "text",
           "style": "plain",
           "foreground": "p:green",
+          "foreground_templates": [
+            "{{ if ne .Code 0 }}p:red{{ end }}"
+          ],
           "template": " ❯ "
         }
       ]
@@ -85,10 +88,19 @@
           "powerline_symbol": "🭪",
           "leading_powerline_symbol": "",
           "foreground": "p:teal",
+          "foreground_templates": [
+            "{{ if or .Working.Changed .Staging.Changed }}p:cream{{ end }}"
+          ],
           "background": "p:path",
-          "template": " {{ if .Detached }}{{ .ShortHash }}{{ else }}{{ .Ref }}{{ end }} ",
+          "background_templates": [
+            "{{ if or .Working.Changed .Staging.Changed }}p:red{{ end }}"
+          ],
+          "template": " {{ if .Detached }}{{ .ShortHash }}{{ else }}{{ .Ref }}{{ end }}{{ if or .Working.Changed .Staging.Changed }} ✗ {{ add .Working.Unmerged .Working.Deleted .Working.Added .Working.Modified .Working.Untracked .Staging.Unmerged .Staging.Deleted .Staging.Added .Staging.Modified }}{{ end }} ",
           "options": {
-            "fetch_status": false
+            "fetch_status": true,
+            "untracked_modes": {
+              "*": "all"
+            }
           }
         },
         {
@@ -98,10 +110,10 @@
           "leading_powerline_symbol": "",
           "foreground": "p:teal",
           "background": "p:surface",
-          "template": " {{ .FormattedMs }} ",
+          "template": "{{ if gt .Ms 2000 }} {{ .FormattedMs }} {{ end }}",
           "options": {
-            "always_enabled": true,
-            "threshold": 0,
+            "always_enabled": false,
+            "threshold": 2000,
             "style": "austin"
           }
         }
