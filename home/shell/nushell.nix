@@ -9,12 +9,12 @@
     settings.show_banner = false;
 
     # Let the compositor size the window before drawing Fastfetch's image.
-    extraConfig = ''
-      if $nu.is-interactive {
-        sleep 300ms
-        ^${config.programs.fastfetch.package}/bin/fastfetch
-      }
-    '';
+    # extraConfig = ''
+    #   if $nu.is-interactive {
+    #     sleep 300ms
+    #     ^${config.programs.fastfetch.package}/bin/fastfetch
+    #   }
+    # '';
 
     shellAliases = {
       ll = "ls -la";
