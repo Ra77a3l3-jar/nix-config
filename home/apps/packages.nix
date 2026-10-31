@@ -3,7 +3,7 @@
 {
 
   home.packages = with pkgs; [
-    chromium
+    # chromium
     libreoffice
   ] ++ (with pkgs-unstable; [
     fluffychat

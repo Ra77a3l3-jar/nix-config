@@ -18,6 +18,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    helium = {
+      url = "github:AlvaroParker/helium-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     neovim-nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -42,6 +47,7 @@
       nixpkgs-unstable,
       home-manager,
       zen-browser,
+      helium,
       neovim-nvf,
       helix-steel,
       nhx,
@@ -65,6 +71,7 @@
           inputs
           pkgs-unstable
           zen-browser
+          helium
           neovim-nvf
           helix-steel
           nhx

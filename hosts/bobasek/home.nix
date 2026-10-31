@@ -1,6 +1,7 @@
 {
   pkgs,
   zen-browser,
+  helium,
   system,
   ...
 }:
@@ -43,5 +44,6 @@
     ])
     ++ [
       zen-browser.packages.${system}.default
+      helium.packages.${system}.default
     ];
 }

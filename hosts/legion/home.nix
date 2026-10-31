@@ -4,6 +4,7 @@
   pkgs-unstable,
   nixvim,
   zen-browser,
+  helium,
   inputs,
   system,
   ...
@@ -92,6 +93,7 @@ in
     ++ [
       steam
       zen-browser.packages.${system}.default
+      helium.packages.${system}.default
     ];
 
 }
