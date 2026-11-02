@@ -18,7 +18,6 @@
     "space" = {
       e = ":forest-open";
       o = ":oil";
-      p = ":trail-open";
       v = ":cliff-toggle";
     };
   };

@@ -11,7 +11,6 @@
     ./moka.nix
     ./oil-unstable.nix
     ./scopeline.nix
-    ./vista.nix
     ./who-unstable.nix
   ];
 }

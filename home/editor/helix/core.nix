@@ -16,14 +16,6 @@
   programs.nhx = {
     enable = true;
 
-    plugins = with helixPlugins; [
-      trail
-      anchor
-      cliff
-      vista
-      scooter
-    ];
-
     package = helix-steel.packages.${pkgs.stdenv.hostPlatform.system}.helix;
 
     steel = {
