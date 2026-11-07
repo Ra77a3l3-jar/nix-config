@@ -1,3 +1,6 @@
+$env.EDITOR = "hx"
+$env.VISUAL = "hx"
+
 $env.PATH = (
     $env.PATH
     | prepend [
