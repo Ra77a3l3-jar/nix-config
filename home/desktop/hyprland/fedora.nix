@@ -10,6 +10,5 @@ in
     hyprPackages.default
     hyprPackages.xdg-desktop-portal-hyprland
     hyprPackages.hyprland-guiutils
-    hyprPackages.hyprlauncher
   ];
 }
