@@ -2,6 +2,7 @@
   pkgs,
   pkgs-unstable,
   config,
+  mistral-vibe,
   ...
 }:
 
@@ -24,6 +25,7 @@
     ++ [
       pkgs-unstable.kicad
       pkgs-unstable.devenv
+      mistral-vibe.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 
 }

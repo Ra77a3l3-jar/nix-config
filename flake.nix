@@ -38,6 +38,11 @@
     };
 
     sonora.url = "github:sonorahq/sonora";
+
+    mistral-vibe = {
+      url = "github:mistralai/mistral-vibe";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs =
@@ -51,6 +56,7 @@
       neovim-nvf,
       helix-steel,
       nhx,
+      mistral-vibe,
       ...
     }@inputs:
     let
@@ -75,6 +81,7 @@
           neovim-nvf
           helix-steel
           nhx
+          mistral-vibe
           ;
         inherit system;
       };
